@@ -90,3 +90,35 @@ We use the clang-check to do a basic error check in the input source and the -as
 ```
 
 AST is afterall a regular tree structure with nodes and every node is derived from its parent node. In this code, we can see there are two siblings node in top-level. They are both `FunctionDecl` for two functions in user source code. We can notice the name of the function with its signature in this format: `func_name 'return_type (param_type, param_type)'`. Next, we can see `ParmVarDecl` for every param where they also have the variable naming with respective type. Finally, a `CompoundStmt` starts which is the function body that ends up with a `ReturnStmt`. For `doSum()`, there are more than `ReturnStmt` under the `CompoundStmt` e.g. we can see a `BinaryOperator` for `=` operator in `sum = a + b;` followed by a `DeclRefExpr` indicates the lValue `sum` and another `BinaryOperator` for the `+` operation that is also followed by two other `DeclRefExpr` for variable `a` and `b`, each of them are derived from `ImplicitCastExpr` to explain that they have to be converted to rValue from the lValue. Another important node for this job is the `CallExpr` in `main()`. We can see it has two `IntegerLiteral` which defines the call's two arguments.
+
+## Workspace Structure
+It is most standard to build Clang libtool under the Clang tools directory (llvm/tools/clang/tools/). We create a directory (clang-wrapper) for tool and add the following line at the end of CMakeLists.txt (llvm/tools/clang/tools/). 
+
+```txt
+add_clang_subdirectory(clang-wrapper)
+```
+
+Inside the tool directory, we will have another CMakeLists.txt which looks like following:
+
+```txt
+cmake_minimum_required(VERSION 2.8.8)
+project(syssec-workshop)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/..)
+set(LLVM_LINK_COMPONENTS support)
+
+add_clang_executable(clang-wrapper
+  wrap-method.cpp
+  )
+target_link_libraries(clang-wrapper
+  clangTooling
+  clangBasic
+  clangASTMatchers
+  )
+install(TARGETS clang-wrapper RUNTIME DESTINATION bin)
+```
+
+At the beginning, it ensures the cmake minimum version to build this tool. Then we give a project name (in this case, syssec-workshop), it is just giving a name for the job. Next, `include_directories` is for the clang source code path. The `set` basic LLVM link support.
+The `add_clang_executable` is important, we first give the executable name (or tool name) and than the list of tool source code file to compile. The other `target_link_libraries` is also important which mentions what clang api support will be required for this tool (clang-wrapper). We will use clangTooling (libtool support), clangBasic (clang basic support for user input handling), and clangASTMatchers (for clang ASTMatcher api). `install` will direct where to install the tool.
+
+Next to the CMakeLLists.txt, we should add the C++ source code for the libtool. Once we have everything ready to compile, we can build the tool at the same time we build the LLVM/Clang from their build directory. The libtool will be available under the same name we have mentioned in CMakeLists.txt besides the clang binary in the build directory (build/bin/).
