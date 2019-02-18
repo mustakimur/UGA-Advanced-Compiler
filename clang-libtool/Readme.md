@@ -1,4 +1,4 @@
-#Clang Libtool
+# Clang Libtool
 Technically, Clang receives an Abstract Syntax Tree (AST), build by Clang Parser (clang/Parse/*), not the input C/C++ code (although Parser is part of Clang code base). There is obviously a Lexer in between this process, but neither Lexer nor Parser is our focus in this tutorial. Clang is responsible to convert the AST to LLVM IR which is implemented in Clang CodeGen. Once source code is translated to LLVM IR, all instrumentation have to be in LLVM IR. It is certainly easy to instrument in fine-grain language like LLVM-IR then complicated top-level source code. But in certain cases (e.g. code formatter, code documentation etc.), it is expected to modify the source code (overwrite the source file).
 
 **Clang Libtool** is an API to modify the AST while it is in buffer and write back it to the source file in input source language. So, a developer can insert/remove/modify any node in AST by the API functionality and all others will be handled by the libtool. This design gives the plugin developer flexibility to focus on specific purpose. Besides good understanding of C++ coding, a developer will require following knowledge:
