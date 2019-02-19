@@ -1,5 +1,7 @@
 /*
- * Clang LibTooling Example
+ * Clang Libtool Sample for SYSSEC-FSU Workshop
+ * Author: Mustakimur Rahman Khandaker
+ * Affliation: Florida State University
  */
 #include <sstream>
 #include <string>
@@ -22,45 +24,46 @@ using namespace clang::driver;
 using namespace clang::tooling;
 using namespace std;
 
-const string type_literal[][2] = {
+const string type_format_specifier[][2] = {
     {"int", "%d"},   {"long", "%ld"}, {"long long", "%lld"}, {"double", "%lf"},
     {"float", "%f"}, {"char", "%c"},  {"string", "%s"}};
 
-// Apply a custom category to all command-line options so that they are the
-// only ones displayed.
+// creates a option category to show what functionality available in this tool
+// try clang-wrapper -help
 static llvm::cl::OptionCategory
     SYSSEC_COMPILER_WORKSHOP("SYSSEC-CLANG-WRAPPER");
 
-// CommonOptionsParser declares HelpMessage with a description of the common
-// command-line options related to the compilation database and input files.
-// It's nice to have this help message in all tools.
-static llvm::cl::extrahelp CommonHelp(CommonOptionsParser::HelpMessage);
-
+// creates multiple options to feed user inputs
+// -wrap takes true/false and required
 static llvm::cl::opt<bool>
-    anyWrap("wrap", llvm::cl::desc("Do you want to wrap a function?"),
-            llvm::cl::Required, llvm::cl::cat(SYSSEC_COMPILER_WORKSHOP));
-
+    wFlag("wrap", llvm::cl::desc("Do you want to wrap a function?"),
+          llvm::cl::Required, llvm::cl::cat(SYSSEC_COMPILER_WORKSHOP));
+// -wrap-prefix takes a string and optional
 static llvm::cl::opt<std::string>
     wrapPrefix("wrap-prefix",
                llvm::cl::desc("Select the prefix of the wrapper."),
                llvm::cl::Optional, llvm::cl::cat(SYSSEC_COMPILER_WORKSHOP));
-
+// -wrap-prefix takes a string and optional
 static llvm::cl::opt<std::string>
-    wrapMethod("wrap-target", llvm::cl::desc("Name the function to wrap."),
-               llvm::cl::Optional, llvm::cl::cat(SYSSEC_COMPILER_WORKSHOP));
+    targetMethod("wrap-target", llvm::cl::desc("Name the function to wrap."),
+                 llvm::cl::Optional, llvm::cl::cat(SYSSEC_COMPILER_WORKSHOP));
 
-// A help message for this specific tool can be added afterwards.
+// it is possible to show enhance message about the tool
 static llvm::cl::extrahelp MoreHelp("\nA Clang Libtool to create a wrapper for "
                                     "a function to show its input values\n");
 
-// Called when the Match registered for it was successfully found in the AST
+/*
+SYSSECWrapper is responsible to create new wrap function and its body
+*/
 class SYSSECWrapper : public MatchFinder::MatchCallback {
 private:
-  string getTypeLiteral(string index) {
-    for (unsigned int i = 0; i < sizeof(type_literal) / sizeof(type_literal[0]);
+  // a simple method to return format_specifier for different types
+  string getFormatSpecifier(string index) {
+    for (unsigned int i = 0;
+         i < sizeof(type_format_specifier) / sizeof(type_format_specifier[0]);
          i++) {
-      if (type_literal[i][0] == index) {
-        return type_literal[i][1];
+      if (type_format_specifier[i][0] == index) {
+        return type_format_specifier[i][1];
       }
     }
     return "%p";
@@ -69,42 +72,65 @@ private:
 public:
   SYSSECWrapper(Rewriter &Rewrite) : Rewrite(Rewrite) {}
 
-  // matched with main method
-  // wrap the main method to avoid return to system while there is an indirect
-  // call inside the main
+  // AST matcher match the function declaration with target function
   virtual void run(const MatchFinder::MatchResult &Result) {
-    // This class handles loading and caching of source files into memory
-    SourceManager &sourceManager = Result.Context->getSourceManager();
-    // Represents a function declaration or definition
+    // you can use sourceManager to print debug information about sourceLocation
+    // SourceManager &sourceManager = Result.Context->getSourceManager();
+
+    // retrieve the matched function declaration
     const FunctionDecl *func =
         Result.Nodes.getNodeAs<clang::FunctionDecl>("wrapFunc");
+
+    // if function has a body
     if (func->hasBody()) {
+      // collect the function return type
       string retType = func->getReturnType().getAsString();
+      // collect number of params in the function
       unsigned int paramNum = func->getNumParams();
+
+      // we create text for function body and signature
       string funcParamSignature = "";
       string funcBody = "";
+      // we create text for call the target function from wrap function
       string argString = "";
+
       for (unsigned int i = 0; i < paramNum; i++) {
+        // param_type param_name
         funcParamSignature += func->getParamDecl(i)->getType().getAsString() +
                               " " + func->getParamDecl(i)->getName().str();
+        // argument_name
         argString += func->getParamDecl(i)->getName().str();
-        funcBody +=
-            "    printf(\"" +
-            getTypeLiteral(func->getParamDecl(i)->getType().getAsString()) +
-            "\\n\", " + func->getParamDecl(i)->getName().str() + ");\n";
         if (i < paramNum - 1) {
           funcParamSignature += ", ";
           argString += ", ";
         }
+
+        // creates a printf for every param to print their value
+        string format_specifier =
+            getFormatSpecifier(func->getParamDecl(i)->getType().getAsString());
+        string pName;
+        if (format_specifier == "%p") {
+          // if not specified in format specifier array, then will print the
+          // address
+          pName = "&" + func->getParamDecl(i)->getName().str();
+        } else {
+          pName = func->getParamDecl(i)->getName().str();
+        }
+        funcBody +=
+            "    printf(\"" + format_specifier + "\\n\", " + pName + ");\n";
       }
+      // at the end of function body, we call the target function with return
+      // statement
+      funcBody += "    return " + targetMethod + "(" + argString + ");";
 
-      funcBody += "    return " + wrapMethod + "(" + argString + ");";
-
+      // the target function end point is the '}', so we ask for +1 offset
       SourceLocation TARGET_END = func->getEndLoc().getLocWithOffset(1);
       std::stringstream wrapFunction;
-      string wrapFunctionName = wrapPrefix + "_" + wrapMethod;
+      string wrapFunctionName = wrapPrefix + "_" + targetMethod;
+      // we create the entire wrap function text
       wrapFunction << "\n" + retType + " " + wrapFunctionName + +"(" +
                           funcParamSignature + ")\n{\n" + funcBody + "\n}";
+      // let's insert the wrap function at the end of target function
       Rewrite.InsertText(TARGET_END, wrapFunction.str(), true, true);
     }
   }
@@ -113,22 +139,23 @@ private:
   Rewriter &Rewrite;
 };
 
-// Called when the Match registered for it was successfully found in the AST
+/*
+SYSSECRedirect is responsible to redirect call to target function to wrap
+function
+*/
 class SYSSECRedirect : public MatchFinder::MatchCallback {
 private:
 public:
   SYSSECRedirect(Rewriter &Rewrite) : Rewrite(Rewrite) {}
 
-  // matched with main method
-  // wrap the main method to avoid return to system while there is an indirect
-  // call inside the main
+  // AST matcher match the call expression with callee to target function
   virtual void run(const MatchFinder::MatchResult &Result) {
-    SourceManager &sourceManager = Result.Context->getSourceManager();
-    // Represents a function declaration or definition
+    // retrieve the matched call expression
     const CallExpr *cexpr =
         Result.Nodes.getNodeAs<clang::CallExpr>("callMatched");
-    string wrapFunctionName = wrapPrefix + "_" + wrapMethod;
 
+    string wrapFunctionName = wrapPrefix + "_" + targetMethod;
+    // let's replace the callee from call expression with the wrap function
     Rewrite.ReplaceText(cexpr->getCallee()->getSourceRange(), wrapFunctionName);
   }
 
@@ -141,11 +168,16 @@ private:
 class SYSSECASTConsumer : public ASTConsumer {
 public:
   SYSSECASTConsumer(Rewriter &R) : handleWrapper(R), handleRedirect(R) {
-    Matcher.addMatcher(functionDecl(hasName(wrapMethod)).bind("wrapFunc"),
+    // we ask AST to match the function declaration with the target function
+    // name, if so, callback the hangleWrapper
+    Matcher.addMatcher(functionDecl(hasName(targetMethod)).bind("wrapFunc"),
                        &handleWrapper);
-    Matcher.addMatcher(
-        callExpr(callee(functionDecl(hasName(wrapMethod)))).bind("callMatched"),
-        &handleRedirect);
+
+    // we ask AST to match the call expression with target function as callee
+    // and if so, callback the handleRedirect
+    Matcher.addMatcher(callExpr(callee(functionDecl(hasName(targetMethod))))
+                           .bind("callMatched"),
+                       &handleRedirect);
   }
 
   // call the ASTMatch
@@ -154,10 +186,11 @@ public:
   }
 
 private:
-  SYSSECWrapper
-      handleWrapper; // This is our handler when a match found, it has
-                     // rewriter instance to modify source in matched code
-  SYSSECRedirect handleRedirect;
+  SYSSECWrapper handleWrapper; // This is our handler to create the new wrap
+                               // function with required instructions inside
+  SYSSECRedirect
+      handleRedirect; // This is our handler to replace callExpr with target
+                      // function to callExpr with wrap function
 
   MatchFinder Matcher; // A class to allow finding matches over the Clang AST
 };
@@ -187,7 +220,7 @@ private:
 };
 
 /*
-parse the command line options and create a libtool
+parse the command line options and instantiate the libtool
 */
 int main(int argc, const char **argv) {
   /// CommonOptionsParser constructor will parse arguments and create a
@@ -195,12 +228,15 @@ int main(int argc, const char **argv) {
   CommonOptionsParser op(argc, argv, SYSSEC_COMPILER_WORKSHOP);
   ClangTool Tool(op.getCompilations(), op.getSourcePathList());
 
-  if (anyWrap) {
-    if (wrapMethod.length()) {
-      llvm::errs() << "The target wrap function: " << wrapMethod << "\n";
+  // we can do simple extra user input validation
+  if (wFlag) {
+    // we atleast need to know the target function name
+    if (targetMethod.length()) {
+      llvm::errs() << "The target wrap function: " << targetMethod << "\n";
       if (wrapPrefix.length()) {
         llvm::errs() << "Prefix (User): " << wrapPrefix << "\n";
       } else {
+        // this is default prefix if user does not provide
         wrapPrefix = "syssec";
         llvm::errs() << "Prefix (Default): " << wrapPrefix << "\n";
       }
