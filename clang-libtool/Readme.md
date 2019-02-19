@@ -124,6 +124,9 @@ The `add_clang_executable` is important, we first give the executable name (or t
 
 Next to the CMakeLLists.txt, we should add the C++ source code for the libtool (we will have one i.e. wrap-method.cpp). Once we have everything ready to compile, we can build the tool the same way we build the clang/llvm from its build directory. The libtool will be available in the build directory (i.e. build/bin/).
 
+## Installation
+The workspace directory is available here: https://github.com/mustakcsecuet/syssec-workshop/tree/master/clang-libtool/clang-wrapper. Copy this to your (llvm/tools/clang/tools/) and add the directory to the CMakeLists.txt file there. Build the tool with your Clang build.
+
 ## Basic Code Structure
 The code structure of a Clang libtool can be divided into four parts. We definitely require a main function which will process command line user input and prepare the next phase. The next phase is  responsible to preapare the Rewriter (metaphore a pen) for the Compiler processed AST buffer. In the third step, we will prepare the AST matcher (metaphore pattern recognization engine). Finally, we will write handler to use the Rewritter for matched AST.
 
@@ -289,3 +292,40 @@ This may seem confusing because there is no function declaration under call expr
 
 Details about AST matcher is available here: https://clang.llvm.org/docs/LibASTMatchersReference.html
 
+## Handlers
+This is where we start writing the action for matched pattern (with the help of the `Rewriter`). We have two different handlers for two different matcher. Both of them extends the `MatchFinder::MatchCallback`. The override `run()` receives `const MatchFinder::MatchResult &` from which we can extract the findings using the binding tag. We can also have the `ASTContext` to access the `SourceManager`.
+
+**SYSSECWrapper:** We bind the `FunctionDecl` with tag `wrapFunc` which we access as following:
+
+```C++
+const FunctionDecl *func =
+        Result.Nodes.getNodeAs<clang::FunctionDecl>("wrapFunc");
+```
+
+Once we have the `FunctionDecl` instance, we get access to every information related to the function. As an example: we can access the return type and number of params of the function:
+
+```C++
+string retType = func->getReturnType().getAsString();
+unsigned int paramNum = func->getNumParams();
+```
+
+In similar fashion, we can access `ParamVarDecl`, function body `Expr` etc. For any `Expr`, we can access their source location using `getBeginLoc()` or `getEndLoc()` (there are more functions available to access different locations related to an expression).
+
+```C++
+      // the target function end point is the '}', so we ask for +1 offset
+      SourceLocation TARGET_END = func->getEndLoc().getLocWithOffset(1);
+      std::stringstream wrapFunction;
+      string wrapFunctionName = wrapPrefix + "_" + targetMethod;
+      // we create the entire wrap function text
+      wrapFunction << "\n" + retType + " " + wrapFunctionName + +"(" +
+                          funcParamSignature + ")\n{\n" + funcBody + "\n}";
+      // let's insert the wrap function at the end of target function
+      Rewrite.InsertText(TARGET_END, wrapFunction.str(), true, true);
+```
+
+Finally, we like to insert a function at the end of the target function. So, once our function body and signature is read (`wrapFunction`), we use the `Rewrite.InsertText()`. We first mention the location where to insert and then the text. The third param of this method asks if we want to insert after the location or before, the fourth param is for indentation to new line.
+
+**SYSSECRedirect:** We bind the `CallExpr` in the matcher with tag `callMatched` and we access it here. Once we have it, we only need to replace the callee with the wrap function. So, we use `Rewrite.ReplaceText()` where we first mention the source range of the callee that we want to modify and then we mention the new callee name.
+
+## Thats All
+yes, thats all you require to know to write your own Clang libtool. Just follow the code structure and write your code using all the functionality available from Clang. *Do not try to break the structure, it will help you to avoid any issue.*
