@@ -92,13 +92,13 @@ We use the clang-check to do a basic error check in the input source and the -as
 AST is afterall a regular tree structure with nodes and every node is derived from its parent node. In this code, we can see there are two siblings node in top-level. They are both `FunctionDecl` for two functions in user source code. We can notice the name of the function with its signature in this format: `func_name 'return_type (param_type, param_type)'`. Next, we can see `ParmVarDecl` for every param where they also have the variable naming with respective type. Finally, a `CompoundStmt` starts which is the function body that ends up with a `ReturnStmt`. For `doSum()`, there are more than `ReturnStmt` under the `CompoundStmt` e.g. we can see a `BinaryOperator` for `=` operator in `sum = a + b;` followed by a `DeclRefExpr` indicates the lValue `sum` and another `BinaryOperator` for the `+` operation that is also followed by two other `DeclRefExpr` for variable `a` and `b`, each of them are derived from `ImplicitCastExpr` to explain that they have to be converted to rValue from the lValue. Another important node for this job is the `CallExpr` in `main()`. We can see it has two `IntegerLiteral` which defines the call's two arguments.
 
 ## Workspace Structure
-It is most standard to build Clang libtool under the Clang tools directory (llvm/tools/clang/tools/). We create a directory (clang-wrapper) for tool and add the following line at the end of CMakeLists.txt (llvm/tools/clang/tools/). 
+It is a standard procedure to build the Clang Libtool from the Clang tools directory (i.e. llvm/tools/clang/tools/). So, we create a directory (clang-wrapper) for the tool and add the following line at the end of CMakeLists.txt (in llvm/tools/clang/tools/). 
 
 ```txt
 add_clang_subdirectory(clang-wrapper)
 ```
 
-Inside the tool directory, we will have another CMakeLists.txt which looks like following:
+Inside our tool workspace, we will have another CMakeLists.txt which usually looks like following:
 
 ```txt
 cmake_minimum_required(VERSION 2.8.8)
@@ -118,7 +118,174 @@ target_link_libraries(clang-wrapper
 install(TARGETS clang-wrapper RUNTIME DESTINATION bin)
 ```
 
-At the beginning, it ensures the cmake minimum version to build this tool. Then we give a project name (in this case, syssec-workshop), it is just giving a name for the job. Next, `include_directories` is for the clang source code path. The `set` basic LLVM link support.
-The `add_clang_executable` is important, we first give the executable name (or tool name) and than the list of tool source code file to compile. The other `target_link_libraries` is also important which mentions what clang api support will be required for this tool (clang-wrapper). We will use clangTooling (libtool support), clangBasic (clang basic support for user input handling), and clangASTMatchers (for clang ASTMatcher api). `install` will direct where to install the tool.
+At the beginning, it ensures the cmake minimum version to build this tool. Then we give a project name (in this case, syssec-workshop). Next, `include_directories` is for the clang source code path. The `set` basic LLVM link support.
 
-Next to the CMakeLLists.txt, we should add the C++ source code for the libtool. Once we have everything ready to compile, we can build the tool at the same time we build the LLVM/Clang from their build directory. The libtool will be available under the same name we have mentioned in CMakeLists.txt besides the clang binary in the build directory (build/bin/).
+The `add_clang_executable` is important, we first give the executable name (or tool name) and than the list of dependent source code to compile. The `target_link_libraries` is also important which mentions what clang runtime support will be required for this tool (i.e. clang-wrapper). We will use clangTooling (libtool support), clangBasic (clang basic support for user input handling), and clangASTMatchers (for clang ASTMatcher api). `install` will set the path where to install the tool.
+
+Next to the CMakeLLists.txt, we should add the C++ source code for the libtool (we will have one i.e. wrap-method.cpp). Once we have everything ready to compile, we can build the tool the same way we build the clang/llvm from its build directory. The libtool will be available in the build directory (i.e. build/bin/).
+
+## Basic Code Structure
+The code structure of a Clang libtool can be divided into four parts. We definitely require a main function which will process command line user input and prepare the next phase. The next phase is  responsible to preapare the Rewriter (metaphore a pen) for the Compiler processed AST buffer. In the third step, we will prepare the AST matcher (metaphore pattern recognization engine). Finally, we will write handler to use the Rewritter for matched AST.
+
+**Command Line Parser:** Inside the `main()`, we process the command line options. We can do extra verfication on user input here. It also creates the ClangTool instance and runs the tool with a customized `ASTFrontendAction`. Libtool API use the factory design pattern to return the instance of the customized `ASTFrontendAction`.
+
+**SYSSECFrontEndAction:** This class extends from `ASTFrontendAction` where we can override the `CreateASTConsumer()` and prepare the `Rewriter` for the AST buffer. Later, we subvert the control flow to our customized `ASTConsumer`. Besides that, we also override `EndSourceFileAction()` to inform the compiler to commit the change in buffer to source file at the end of process.
+
+**SYSSECASTConsumer:** This class extends from `ASTConsumer` where we can finally have the `ASTContext` and define-use the `MatchFinder`. In its private member, we have the `MatchFinder` and two handlers. In the class constructor, we define the match pattern and set their respective callback handler. We override `HandleTranslationUnit()` to request the compiler to start the `MatchFinder` process.
+
+**Handlers:** The handlers are automatically called when `MatchFinder` finds a match. We have two handler, first one to create wrap function immediate to target function with identical function signature, the later one redirect every call expression to original target function to the wrap function.
+
+So, overall the code structure looks like:
+```C++
+class SYSSECWrapper : public MatchFinder::MatchCallback {
+public:
+  SYSSECWrapper(Rewriter &Rewrite) : Rewrite(Rewrite) {}
+  virtual void run(const MatchFinder::MatchResult &Result) {
+    // action for the matched pattern
+  }
+private:
+  Rewriter &Rewrite;
+};
+class SYSSECRedirect : public MatchFinder::MatchCallback {
+private:
+public:
+  SYSSECRedirect(Rewriter &Rewrite) : Rewrite(Rewrite) {}
+  virtual void run(const MatchFinder::MatchResult &Result) {
+    // action for the matched pattern
+  }
+private:
+  Rewriter &Rewrite;
+};
+class SYSSECASTConsumer : public ASTConsumer {
+public:
+  SYSSECASTConsumer(Rewriter &R) : handleWrapper(R), handleRedirect(R) {
+    // define MatchFinder pattern
+  }
+  void HandleTranslationUnit(ASTContext &Context) override {
+    Matcher.matchAST(Context);
+  }
+
+private:
+  SYSSECWrapper handleWrapper;
+  SYSSECRedirect handleRedirect;
+  MatchFinder Matcher;
+};
+class SYSSECFrontEndAction : public ASTFrontendAction {
+public:
+  SYSSECFrontEndAction() {}
+  void EndSourceFileAction() override {
+    TheRewriter.getEditBuffer(TheRewriter.getSourceMgr().getMainFileID())
+        .write(llvm::outs());
+  }
+  std::unique_ptr<ASTConsumer> CreateASTConsumer(CompilerInstance &CI,
+                                                 StringRef file) override {
+    TheRewriter.setSourceMgr(CI.getSourceManager(), CI.getLangOpts());
+    return llvm::make_unique<SYSSECASTConsumer>(TheRewriter);
+  }
+private:
+  Rewriter TheRewriter;
+};
+int main(int argc, const char **argv) {
+  CommonOptionsParser op(argc, argv, SYSSEC_COMPILER_WORKSHOP);
+  ClangTool Tool(op.getCompilations(), op.getSourcePathList());
+  // process command line option
+  return Tool.run(newFrontendActionFactory<SYSSECFrontEndAction>().get());
+}
+```
+
+Notice, once we have defined `Rewriter` in `SYSSECFrontEndAction`, we always carry it in to the upper steps of the code structure.
+
+## Command Line Option
+In the beginning of the source code (global space), we have defined multiple `cl` fields for different command-line operations.
+```C++
+// creates a option category to show what functionality available in this tool
+// try clang-wrapper -help
+static llvm::cl::OptionCategory
+    SYSSEC_COMPILER_WORKSHOP("SYSSEC-CLANG-WRAPPER");
+
+// creates multiple options to feed user inputs
+// -wrap takes true/false and required
+static llvm::cl::opt<bool>
+    wFlag("wrap", llvm::cl::desc("Do you want to wrap a function?"),
+          llvm::cl::Required, llvm::cl::cat(SYSSEC_COMPILER_WORKSHOP));
+// -wrap-prefix takes a string and optional
+static llvm::cl::opt<std::string>
+    wrapPrefix("wrap-prefix",
+               llvm::cl::desc("Select the prefix of the wrapper."),
+               llvm::cl::Optional, llvm::cl::cat(SYSSEC_COMPILER_WORKSHOP));
+// -wrap-prefix takes a string and optional
+static llvm::cl::opt<std::string>
+    targetMethod("wrap-target", llvm::cl::desc("Name the function to wrap."),
+                 llvm::cl::Optional, llvm::cl::cat(SYSSEC_COMPILER_WORKSHOP));
+
+// it is possible to show enhance message about the tool
+static llvm::cl::extrahelp MoreHelp("\nA Clang Libtool to create a wrapper for "
+                                    "a function to show its input values\n");
+```
+
+Inside the `main()`, we can do further sanitization on user provided command line input.
+
+```C++
+  // we can do simple extra user input validation
+  if (wFlag) {
+    // we atleast need to know the target function name
+    if (targetMethod.length()) {
+      llvm::errs() << "The target wrap function: " << targetMethod << "\n";
+      if (wrapPrefix.length()) {
+        llvm::errs() << "Prefix (User): " << wrapPrefix << "\n";
+      } else {
+        // this is default prefix if user does not provide
+        wrapPrefix = "syssec";
+        llvm::errs() << "Prefix (Default): " << wrapPrefix << "\n";
+      }
+    } else {
+      llvm::errs() << "Please, input a target function name.\n";
+      return 0;
+    }
+  }
+```
+
+As an independent compiler tool, user interaction is important and libtool gives enough flexibility to handle them.
+
+## AST Matcher
+We have AST matcher to match two different patterns: 1) function declaration of target function, 2) call expression with target function as callee.
+
+To match following AST node:
+
+```text
+|-FunctionDecl 0xc778450 <../target_test.c:3:1, line:7:1> line:3:5 used doSum 'int (int, int)'
+```
+
+We have following straightforward matcher:
+
+```C++
+    // we ask AST to match the function declaration with the target function
+    // name, if so, callback the hangleWrapper
+    Matcher.addMatcher(functionDecl(hasName(targetMethod)).bind("wrapFunc"),
+                       &handleWrapper);
+```
+
+The `.bind(tag)` basically tag the findings so that we can use the tag later to retrieve the instance of matched pattern.
+
+To match the following AST:
+
+```text
+-CallExpr 0xc778860 <col:12, col:24> 'int'
+        |-ImplicitCastExpr 0xc778848 <col:12> 'int (*)(int, int)' <FunctionToPointerDecay>
+        | `-DeclRefExpr 0xc7787b8 <col:12> 'int (int, int)' Function 0xc778450 'doSum' 'int (int, int)'
+```
+
+We write the following matcher:
+
+```C++
+    // we ask AST to match the call expression with target function as callee
+    // and if so, callback the handleRedirect
+    Matcher.addMatcher(callExpr(callee(functionDecl(hasName(targetMethod))))
+                           .bind("callMatched"),
+                       &handleRedirect);
+```
+
+This may seem confusing because there is no function declaration under call expression. Basically, `callExpr(callee)` returns the `DeclRefExpr` which we have fine-grained by `functionDecl` as callee must be a functionDecl (it could be cxxMethodDecl for C++ code).
+
+Details about AST matcher is available here: https://clang.llvm.org/docs/LibASTMatchersReference.html
+
