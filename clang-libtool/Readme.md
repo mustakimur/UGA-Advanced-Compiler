@@ -125,7 +125,11 @@ The `add_clang_executable` is important, we first give the executable name (or t
 Next to the CMakeLLists.txt, we should add the C++ source code for the libtool (we will have one i.e. wrap-method.cpp). Once we have everything ready to compile, we can build the tool the same way we build the clang/llvm from its build directory. The libtool will be available in the build directory (i.e. build/bin/).
 
 ## Installation
-The workspace directory is available here: https://github.com/mustakcsecuet/syssec-workshop/tree/master/clang-libtool/clang-wrapper. Copy this to your (llvm/tools/clang/tools/) and add the directory to the CMakeLists.txt file there. Build the tool with your Clang build.
+The workspace directory is available here: https://github.com/mustakcsecuet/syssec-workshop/tree/master/clang-libtool/clang-wrapper. Copy this to your (llvm/tools/clang/tools/) and add the directory to the CMakeLists.txt file there. Build the tool with your Clang build. Use the tool in following way:
+
+```text
+clang-wrapper -wrap=true -wrap-prefix=wrap -wrap-target=doSum target_test.c --
+```
 
 ## Basic Code Structure
 The code structure of a Clang libtool can be divided into four parts. We definitely require a main function which will process command line user input and prepare the next phase. The next phase is  responsible to preapare the Rewriter (metaphore a pen) for the Compiler processed AST buffer. In the third step, we will prepare the AST matcher (metaphore pattern recognization engine). Finally, we will write handler to use the Rewritter for matched AST.
