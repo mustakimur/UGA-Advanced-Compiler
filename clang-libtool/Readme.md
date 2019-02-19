@@ -328,6 +328,8 @@ Finally, we like to insert a function at the end of the target function. So, onc
 **SYSSECRedirect:** We bind the `CallExpr` in the matcher with tag `callMatched` and we access it here. Once we have it, we only need to replace the callee with the wrap function. So, we use `Rewrite.ReplaceText()` where we first mention the source range of the callee that we want to modify and then we mention the new callee name.
 
 ```C++
+const CallExpr *cexpr =
+        Result.Nodes.getNodeAs<clang::CallExpr>("callMatched");
 Rewrite.ReplaceText(cexpr->getCallee()->getSourceRange(), wrapFunctionName);
 ```
 
