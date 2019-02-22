@@ -8,6 +8,8 @@
 
 __attribute__((__used__)) unsigned int CFG_LENGTH = 0;
 
+unsigned int passCounter = 0;
+
 struct CFI_STRUCT {
   unsigned long iCall;
   unsigned long iTarget;
@@ -74,9 +76,10 @@ void pCall_reference_monitor(unsigned long pCallID, unsigned long target) {
   unsigned long pCall_target = target;
 
   if (cfi_hash_check(pCall_point, pCall_target)) {
+    passCounter++;
     return;
   } else {
-    fprintf(stderr, "[pCall-CFI] Error at %ld target to %ld\n", pCall_point,
+    fprintf(stderr, "[pCall-CFI] Error at %ld target to 0x%x\n", pCall_point,
             pCall_target);
     return;
   }
@@ -90,7 +93,7 @@ void cfi_init() {
   }
 }
 
-void cfi_free() {}
+void cfi_free() { fprintf(stderr, "Pass Counter: %ld\n", passCounter); }
 
 __attribute__((section(".preinit_array"),
                used)) void (*_cfi_preinit)(void) = cfi_init;
