@@ -11,7 +11,7 @@ Technically, Clang receives an Abstract Syntax Tree (AST), build by Clang Parser
 
 ## Writeup Explanation
 
-In this write-up, we will write a Clang Libtool that will insert a different version of a target function in source code and replace all the call invokation of original function to the new function. Additionally, the newly defined function will print all the params value in it. Consider the following source code:
+In this write-up, we will write a Clang Libtool that will insert a different version of a target function in source code and replace all the call invocation of original function to the new function. Additionally, the newly defined function will print all the params value in it. Consider the following source code:
 
 ```C
 int doSum(int a, int b){
@@ -24,7 +24,7 @@ int main(){
 }
 ```
 
-The above code is a simple C code which have a method `doSum()` that accepts two integers, sum them, store it in a local integer variable, and finally returns it as integer. The function can be called from multiple places with different arguments (e.g. here inside `main()`). Let's consider, we want to print the params received by `doSum()` for every invokation and we do not want to modify the original function. So, we write a different version of the method just after the original:
+The above code is a simple C code which have a method `doSum()` that accepts two integers, sum them, store it in a local integer variable, and finally returns it as integer. The function can be called from multiple places with different arguments (e.g. here inside `main()`). Let's consider, we want to print the params received by `doSum()` for every invocation and we do not want to modify the original function. So, we write a different version of the method just after the original:
 
 ```C
 int doSum(int a, int b){
@@ -44,7 +44,7 @@ int main(){
 
 **As we have mentioned earlier, the only user input will be the target function name, in this case `doSum`. But, the user may also input a prefix for the wrapper method.**
 
-To achieve this, we have to insert a new function with two `printf()` for the two params and also call the original target function and return its results back to the call-site. Besides that, it will also have to replace every call invokation of the target function with the newly created function. We will split this job into following tasks:
+To achieve this, we have to insert a new function with two `printf()` for the two params and also call the original target function and return its results back to the call-site. Besides that, it will also have to replace every call invocation of the target function with the newly created function. We will split this job into following tasks:
 
 * Identify the target function.
 * Identify the function params and their types.
