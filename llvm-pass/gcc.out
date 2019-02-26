@@ -1,0 +1,1658 @@
+WARNING: You're attempting to print out a bitcode file.
+This is inadvisable as it may cause display problems. If
+you REALLY want to taste LLVM bitcode first-hand, you
+can force output with the `-f' option.
+
+gen_sunge
+gen_sungt
+gen_sunle
+gen_sunlt
+gen_sltgt
+gen_beq
+gen_bne
+gen_bgt
+gen_bgtu
+gen_blt
+gen_bltu
+gen_bge
+gen_bgeu
+gen_ble
+gen_bleu
+gen_bunordered
+gen_bordered
+gen_buneq
+gen_bunge
+gen_bungt
+gen_bunle
+gen_bunlt
+gen_bltgt
+gen_indirect_jump
+gen_tablejump
+gen_doloop_end
+gen_call_pop
+gen_call
+gen_call_exp
+gen_call_value_pop
+gen_call_value
+gen_call_value_exp
+gen_untyped_call
+gen_return
+gen_prologue
+gen_epilogue
+gen_sibcall_epilogue
+gen_eh_return
+gen_ffssi2
+gen_sqrtsf2
+gen_sqrtdf2
+gen_movstrsi
+gen_movstrdi
+gen_strmovdi_rex64
+gen_strmovsi
+gen_strmovsi_rex64
+gen_strmovhi
+gen_strmovhi_rex64
+gen_strmovqi
+gen_strmovqi_rex64
+gen_clrstrsi
+gen_clrstrdi
+gen_strsetdi_rex64
+gen_strsetsi
+gen_strsetsi_rex64
+gen_strsethi
+gen_strsethi_rex64
+gen_strsetqi
+gen_strsetqi_rex64
+gen_cmpstrsi
+gen_cmpintqi
+gen_strlensi
+gen_strlendi
+gen_movdicc
+gen_movsicc
+gen_movhicc
+gen_movsfcc
+gen_movdfcc
+gen_movxfcc
+gen_movtfcc
+gen_minsf3
+gen_mindf3
+gen_maxsf3
+gen_maxdf3
+gen_pro_epilogue_adjust_stack
+gen_allocate_stack_worker
+gen_allocate_stack
+gen_builtin_setjmp_receiver
+gen_conditional_trap
+gen_movti
+gen_movv4sf
+gen_movv4si
+gen_movv2si
+gen_movv4hi
+gen_movv8qi
+gen_movv2sf
+gen_sfence
+gen_sse_prologue_save
+gen_prefetch
+output_18
+output_19
+output_20
+output_21
+output_22
+output_23
+output_24
+output_25
+output_26
+output_27
+output_28
+output_32
+output_33
+output_34
+output_35
+output_36
+output_37
+output_44
+output_45
+output_51
+output_60
+output_66
+output_67
+output_71
+output_72
+output_82
+output_84
+output_88
+output_89
+output_90
+output_91
+output_92
+output_93
+output_94
+output_95
+output_96
+output_97
+output_98
+output_99
+output_100
+output_101
+output_102
+output_103
+output_104
+output_105
+output_106
+output_123
+output_124
+output_125
+output_133
+output_135
+output_136
+output_137
+output_138
+output_139
+output_140
+output_141
+output_142
+output_144
+output_145
+output_146
+output_147
+output_148
+output_149
+output_150
+output_151
+output_154
+output_159
+output_164
+output_202
+output_203
+output_204
+output_205
+output_206
+output_207
+output_208
+output_209
+output_210
+output_211
+output_212
+clear_by_pieces_1
+default_function_pro_epilogue
+no_asm_to_stream
+verify_wide_reg_1
+set_phi_alternative_reg
+mark_reg.4183
+notice_stack_pointer_modification_1
+find_regno_partial
+size_htab_hash
+size_htab_eq
+const_binop_1
+fold_convert_1
+mark_not_eliminable
+forget_old_reloads_1
+reload_reg_class_lower
+move2add_note_store
+reload_combine_note_store
+rtx_varies_p
+rtx_addr_varies_p
+set_of_1
+maybe_mark_struct_function
+record_set_info
+record_last_set_info
+mems_conflict_for_gcse_p
+canon_list_insert
+find_used_regs
+invalidate_nonnull_info
+ggc_mark_rtx_ptr
+ggc_mark_tree_ptr
+ggc_mark_rtx_varray_ptr
+ggc_mark_tree_varray_ptr
+ggc_htab_delete
+allocno_compare
+reg_becomes_live
+df_rd_transfer_function
+df_ru_transfer_function
+df_lr_transfer_function
+default_print_error_function
+default_diagnostic_starter
+default_diagnostic_finalizer
+output_add_string
+dw2_output_indirect_constant_1
+mark_indirect_pool
+mark_indirect_pool_entry
+default_eh_frame_section
+dwarf2out_begin_prologue
+dwarf2out_source_line
+dwarf2out_end_epilogue
+dwarf2out_decl
+dwarf2out_abstract_function
+indirect_string_alloc
+dwarf2out_init
+dwarf2out_finish
+dwarf2out_define
+dwarf2out_undef
+dwarf2out_start_source_file
+dwarf2out_end_source_file
+dwarf2out_begin_block
+dwarf2out_end_block
+dwarf2out_ignore_block
+dwarf2out_global_decl
+output_indirect_string
+mark_limbo_die_list
+t2r_eq
+t2r_mark
+t2r_mark_1
+mark_ehl_map_entry
+ehl_hash
+ehl_eq
+ehl_free
+ttypes_filter_hash
+ttypes_filter_eq
+ehspec_filter_hash
+ehspec_filter_eq
+for_each_eh_label_1
+action_record_hash
+action_record_eq
+ocscfi_free
+free
+ocscfi_init
+mpxrt_prepare
+handler_wrap
+open_child_files
+mpxrt_cleanup
+strcmp
+at_fork_check
+handle_packed_attribute
+cb_file_change
+cb_def_pragma
+cb_define
+cb_undef
+c_set_yydebug
+c_init_options
+c_init
+handle_nocommon_attribute
+handle_common_attribute
+handle_noreturn_attribute
+handle_noinline_attribute
+handle_always_inline_attribute
+handle_used_attribute
+handle_unused_attribute
+handle_const_attribute
+handle_transparent_union_attribute
+handle_constructor_attribute
+handle_destructor_attribute
+handle_mode_attribute
+handle_section_attribute
+handle_aligned_attribute
+handle_weak_attribute
+handle_alias_attribute
+handle_no_instrument_function_attribute
+handle_malloc_attribute
+handle_no_limit_stack_attribute
+handle_pure_attribute
+handle_deprecated_attribute
+handle_vector_size_attribute
+cb_line_change
+cb_ident
+anon_aggr_type_p
+c_expand_decl_stmt
+parse_float
+handle_pragma_pack
+handle_pragma_weak
+c_decode_option
+c_print_identifier
+finish_incomplete_decl
+c_make_fname_decl
+mark_binding_level
+push_c_function_context
+pop_c_function_context
+mark_c_function_context
+c_missing_noreturn_ok_p
+c_disregard_inline_limits
+c_cannot_inline_tree_fn
+inline_forbidden_p
+c_tree_printer
+c_convert_parm_for_inlining
+c_common_get_alias_set
+simple_type_promotes_to
+case_compare
+mark_stmt_tree
+c_expand_expr
+c_safe_from_p
+c_unsafe_for_reeval
+c_staticp
+c_common_post_options
+c_common_finish
+handle_format_attribute
+handle_format_arg_attribute
+mark_set_regs
+add_stored_regs
+do_linemarker
+do_define
+do_include
+do_endif
+do_ifdef
+do_if
+do_else
+do_ifndef
+do_undef
+do_line
+do_elif
+do_error
+do_pragma
+do_warning
+do_include_next
+do_ident
+do_import
+do_assert
+do_unassert
+do_sccs
+do_pragma_poison
+do_pragma_once
+do_pragma_system_header
+do_pragma_dependency
+cpp_define
+cpp_undef
+cpp_assert
+cpp_unassert
+check_for_label_ref
+cse_check_loop_start
+check_dependence
+cse_rtx_varies_p
+destroy_node
+report_missing_guard
+alloc_node
+insert_subset_children
+record_set
+builtin_memset_read_str
+builtin_memcpy_read_str
+builtin_strncpy_read_str
+const_int_htab_hash
+const_int_htab_eq
+mem_attrs_htab_hash
+mem_attrs_htab_eq
+mem_attrs_mark
+mark_ehl_map
+t2r_hash
+print_rtl_with_bb
+set_nonzero_bits_and_sign_copies
+reg_dead_at_p_1
+record_dead_and_set_regs_1
+arc_hash
+arc_eq
+mark_reg
+insns_for_mem_newfunc
+insns_for_mem_hash
+insns_for_mem_comp
+is_addressof
+insns_for_mem_walk
+do_clobber_return_reg
+do_use_return_reg
+approx_reg_cost_1
+invalidate_skipped_set
+cselib_invalidate_rtx
+discard_useless_locs
+discard_useless_values
+cselib_invalidate_mem_1
+get_value_hash
+entry_and_rtx_equal_p
+dbxout_init
+dbxout_finish
+dbxout_start_source_file
+dbxout_end_source_file
+dbxout_begin_block
+dbxout_end_block
+dbxout_source_line
+dbxout_begin_function
+dbxout_function_decl
+dbxout_global_decl
+debug_nothing_charstar
+debug_nothing_int_charstar
+debug_nothing_int
+debug_nothing_int_int
+debug_true_tree
+debug_nothing_void
+debug_nothing_tree
+debug_nothing_rtx
+mark_reg_clobber
+mark_reg_store
+rank_for_schedule
+hook_void_bool_false
+find_memory
+athlon_load_unit_ready_cost
+athlon_fp_store_unit_ready_cost
+athlon_fp_muladd_unit_ready_cost
+athlon_fp_add_unit_ready_cost
+athlon_fp_mul_unit_ready_cost
+athlon_fp_unit_ready_cost
+athlon_muldiv_unit_ready_cost
+athlon_muldiv_unit_blockage_range
+athlon_ieu_unit_ready_cost
+athlon_ieu_unit_blockage_range
+athlon_directdec_unit_ready_cost
+athlon_vectordec_unit_ready_cost
+athlon_vectordec_unit_blockage_range
+k6_fpu_unit_ready_cost
+k6_fpu_unit_blockage_range
+k6_store_unit_ready_cost
+k6_store_unit_blockage_range
+k6_load_unit_ready_cost
+k6_load_unit_blockage_range
+k6_branch_unit_ready_cost
+k6_alu_unit_ready_cost
+k6_alu_unit_blockage_range
+k6_alux_unit_ready_cost
+k6_alux_unit_blockage_range
+ppro_p34_unit_ready_cost
+ppro_p2_unit_ready_cost
+ppro_p01_unit_ready_cost
+ppro_p0_unit_ready_cost
+ppro_p0_unit_blockage_range
+pent_v_unit_ready_cost
+pent_uv_unit_ready_cost
+pent_uv_unit_blockage_range
+pent_u_unit_ready_cost
+pent_u_unit_blockage_range
+fpu_unit_ready_cost
+fpu_unit_blockage_range
+pent_mul_unit_ready_cost
+pent_mul_unit_blockage_range
+pent_np_unit_ready_cost
+pent_np_unit_blockage_range
+pent_np_unit_conflict_cost
+pent_np_unit_blockage
+pent_mul_unit_conflict_cost
+pent_mul_unit_blockage
+fpu_unit_conflict_cost
+fpu_unit_blockage
+pent_u_unit_conflict_cost
+pent_u_unit_blockage
+pent_uv_unit_conflict_cost
+pent_uv_unit_blockage
+ppro_p0_unit_conflict_cost
+ppro_p0_unit_blockage
+k6_alux_unit_conflict_cost
+k6_alux_unit_blockage
+k6_alu_unit_conflict_cost
+k6_alu_unit_blockage
+k6_load_unit_conflict_cost
+k6_load_unit_blockage
+k6_store_unit_conflict_cost
+k6_store_unit_blockage
+k6_fpu_unit_conflict_cost
+k6_fpu_unit_blockage
+athlon_vectordec_unit_blockage
+athlon_ieu_unit_conflict_cost
+athlon_ieu_unit_blockage
+athlon_muldiv_unit_conflict_cost
+athlon_muldiv_unit_blockage
+gen_cmpdi_ccno_1_rex64
+gen_cmpdi_1_insn_rex64
+gen_cmpqi_ext_3_insn
+gen_cmpqi_ext_3_insn_rex64
+gen_x86_fnstsw_1
+gen_x86_sahf_1
+gen_popsi1
+gen_movsi_insv_1
+gen_pushdi2_rex64
+gen_popdi1
+gen_swapxf
+gen_swaptf
+gen_zero_extendhisi2_and
+gen_zero_extendsidi2_32
+gen_zero_extendsidi2_rex64
+gen_zero_extendhidi2
+gen_zero_extendqidi2
+gen_extendsidi2_rex64
+gen_extendhidi2
+gen_extendqidi2
+gen_extendhisi2
+gen_extendqihi2
+gen_extendqisi2
+gen_truncdfsf2_3
+gen_truncdfsf2_sse_only
+gen_fix_truncdi_nomemory
+gen_fix_truncdi_memory
+gen_fix_truncsfdi_sse
+gen_fix_truncdfdi_sse
+gen_fix_truncsi_nomemory
+gen_fix_truncsi_memory
+gen_fix_truncsfsi_sse
+gen_fix_truncdfsi_sse
+gen_fix_trunchi_nomemory
+gen_fix_trunchi_memory
+gen_x86_fnstcw_1
+gen_x86_fldcw_1
+gen_floathisf2
+gen_floathidf2
+gen_floathixf2
+gen_floathitf2
+gen_floatsixf2
+gen_floatsitf2
+gen_floatdixf2
+gen_floatditf2
+gen_addqi3_cc
+gen_addsi_1_zext
+gen_addqi_ext_1
+gen_subdi3_carry_rex64
+gen_subsi3_carry
+gen_subsi3_carry_zext
+gen_divqi3
+gen_udivqi3
+gen_divmodhi4
+gen_udivmoddi4
+gen_udivmodsi4
+gen_testsi_1
+gen_andqi_ext_0
+gen_negsf2_memory
+gen_negsf2_ifs
+gen_negdf2_memory
+gen_negdf2_ifs
+gen_abssf2_memory
+gen_abssf2_ifs
+gen_absdf2_memory
+gen_absdf2_ifs
+gen_ashldi3_1
+gen_x86_shld_1
+gen_ashrdi3_63_rex64
+gen_ashrdi3_1
+gen_x86_shrd_1
+gen_ashrsi3_31
+gen_lshrdi3_1
+gen_setcc_2
+gen_jump
+gen_doloop_end_internal
+gen_blockage
+gen_return_internal
+gen_return_pop_internal
+gen_return_indirect_internal
+gen_nop
+gen_prologue_set_got
+gen_prologue_get_pc
+gen_eh_return_si
+gen_eh_return_di
+gen_leave
+gen_leave_rex64
+gen_ffssi_1
+gen_sqrtsf2_1
+gen_sqrtsf2_1_sse_only
+gen_sqrtsf2_i387
+gen_sqrtdf2_1
+gen_sqrtdf2_1_sse_only
+gen_sqrtdf2_i387
+gen_sqrtxf2
+gen_sqrttf2
+gen_sindf2
+gen_sinsf2
+gen_sinxf2
+gen_sintf2
+gen_cosdf2
+gen_cossf2
+gen_cosxf2
+gen_costf2
+gen_cld
+gen_strmovdi_rex_1
+gen_strmovsi_1
+gen_strmovsi_rex_1
+gen_strmovhi_1
+gen_strmovhi_rex_1
+gen_strmovqi_1
+gen_strmovqi_rex_1
+gen_rep_movdi_rex64
+gen_rep_movsi
+gen_rep_movsi_rex64
+gen_rep_movqi
+gen_rep_movqi_rex64
+gen_strsetdi_rex_1
+gen_strsetsi_1
+gen_strsetsi_rex_1
+gen_strsethi_1
+gen_strsethi_rex_1
+gen_strsetqi_1
+gen_strsetqi_rex_1
+gen_rep_stosdi_rex64
+gen_rep_stossi
+gen_rep_stossi_rex64
+gen_rep_stosqi
+gen_rep_stosqi_rex64
+gen_cmpstrqi_nz_1
+gen_cmpstrqi_nz_rex_1
+gen_cmpstrqi_1
+gen_cmpstrqi_rex_1
+gen_strlenqi_1
+gen_strlenqi_rex_1
+gen_x86_movdicc_0_m1_rex64
+gen_x86_movsicc_0_m1
+gen_pro_epilogue_adjust_stack_rex64
+gen_sse_movsfcc
+gen_sse_movsfcc_eq
+gen_sse_movdfcc
+gen_sse_movdfcc_eq
+gen_allocate_stack_worker_1
+gen_allocate_stack_worker_rex64
+gen_trap
+gen_movv4sf_internal
+gen_movv4si_internal
+gen_movv8qi_internal
+gen_movv4hi_internal
+gen_movv2si_internal
+gen_movv2sf_internal
+gen_movti_internal
+gen_sse_movaps
+gen_sse_movups
+gen_sse_movmskps
+gen_mmx_pmovmskb
+gen_mmx_maskmovq
+gen_mmx_maskmovq_rex
+gen_sse_movntv4sf
+gen_sse_movntdi
+gen_sse_movhlps
+gen_sse_movlhps
+gen_sse_movhps
+gen_sse_movlps
+gen_sse_loadss
+gen_sse_movss
+gen_sse_storess
+gen_sse_shufps
+gen_addv4sf3
+gen_vmaddv4sf3
+gen_subv4sf3
+gen_vmsubv4sf3
+gen_mulv4sf3
+gen_vmmulv4sf3
+gen_divv4sf3
+gen_vmdivv4sf3
+gen_rcpv4sf2
+gen_vmrcpv4sf2
+gen_rsqrtv4sf2
+gen_vmrsqrtv4sf2
+gen_sqrtv4sf2
+gen_vmsqrtv4sf2
+gen_sse_andti3
+gen_sse_nandti3
+gen_sse_iorti3
+gen_sse_xorti3
+gen_sse_clrv4sf
+gen_maskcmpv4sf3
+gen_maskncmpv4sf3
+gen_vmmaskcmpv4sf3
+gen_vmmaskncmpv4sf3
+gen_sse_comi
+gen_sse_ucomi
+gen_sse_unpckhps
+gen_sse_unpcklps
+gen_smaxv4sf3
+gen_vmsmaxv4sf3
+gen_sminv4sf3
+gen_vmsminv4sf3
+gen_cvtpi2ps
+gen_cvtps2pi
+gen_cvttps2pi
+gen_cvtsi2ss
+gen_cvtss2si
+gen_cvttss2si
+gen_addv8qi3
+gen_addv4hi3
+gen_addv2si3
+gen_ssaddv8qi3
+gen_ssaddv4hi3
+gen_usaddv8qi3
+gen_usaddv4hi3
+gen_subv8qi3
+gen_subv4hi3
+gen_subv2si3
+gen_sssubv8qi3
+gen_sssubv4hi3
+gen_ussubv8qi3
+gen_ussubv4hi3
+gen_mulv4hi3
+gen_smulv4hi3_highpart
+gen_umulv4hi3_highpart
+gen_mmx_pmaddwd
+gen_mmx_iordi3
+gen_mmx_xordi3
+gen_mmx_clrdi
+gen_mmx_anddi3
+gen_mmx_nanddi3
+gen_mmx_uavgv8qi3
+gen_mmx_uavgv4hi3
+gen_mmx_psadbw
+gen_mmx_pinsrw
+gen_mmx_pextrw
+gen_mmx_pshufw
+gen_eqv8qi3
+gen_eqv4hi3
+gen_eqv2si3
+gen_gtv8qi3
+gen_gtv4hi3
+gen_gtv2si3
+gen_umaxv8qi3
+gen_smaxv4hi3
+gen_uminv8qi3
+gen_sminv4hi3
+gen_ashrv4hi3
+gen_ashrv2si3
+gen_lshrv4hi3
+gen_lshrv2si3
+gen_mmx_lshrdi3
+gen_ashlv4hi3
+gen_ashlv2si3
+gen_mmx_ashldi3
+gen_mmx_packsswb
+gen_mmx_packssdw
+gen_mmx_packuswb
+gen_mmx_punpckhbw
+gen_mmx_punpckhwd
+gen_mmx_punpckhdq
+gen_mmx_punpcklbw
+gen_mmx_punpcklwd
+gen_mmx_punpckldq
+gen_emms
+gen_ldmxcsr
+gen_stmxcsr
+gen_addv2sf3
+gen_subv2sf3
+gen_subrv2sf3
+gen_gtv2sf3
+gen_gev2sf3
+gen_eqv2sf3
+gen_pfmaxv2sf3
+gen_pfminv2sf3
+gen_mulv2sf3
+gen_femms
+gen_pf2id
+gen_pf2iw
+gen_pfacc
+gen_pfnacc
+gen_pfpnacc
+gen_pi2fw
+gen_floatv2si2
+gen_pavgusb
+gen_pfrcpv2sf2
+gen_pfrcpit1v2sf3
+gen_pfrcpit2v2sf3
+gen_pfrsqrtv2sf2
+gen_pfrsqit1v2sf3
+gen_pmulhrwv4hi3
+gen_pswapdv2si2
+gen_pswapdv2sf2
+gen_cmpdi
+gen_cmpsi
+gen_cmphi
+gen_cmpqi
+gen_cmpdi_1_rex64
+gen_cmpsi_1
+gen_cmpqi_ext_3
+gen_cmpxf
+gen_cmptf
+gen_cmpdf
+gen_cmpsf
+gen_movsi
+gen_movhi
+gen_movstricthi
+gen_movqi
+gen_reload_outqi
+gen_movstrictqi
+gen_movdi
+gen_movsf
+gen_movdf
+gen_movxf
+gen_movtf
+gen_zero_extendhisi2
+gen_zero_extendqihi2
+gen_zero_extendqisi2
+gen_zero_extendsidi2
+gen_extendsidi2
+gen_extendsfdf2
+gen_extendsfxf2
+gen_extendsftf2
+gen_extenddfxf2
+gen_extenddftf2
+gen_truncdfsf2
+gen_truncxfsf2
+gen_trunctfsf2
+gen_truncxfdf2
+gen_trunctfdf2
+gen_fix_truncxfdi2
+gen_fix_trunctfdi2
+gen_fix_truncdfdi2
+gen_fix_truncsfdi2
+gen_fix_truncxfsi2
+gen_fix_trunctfsi2
+gen_fix_truncdfsi2
+gen_fix_truncsfsi2
+gen_fix_truncxfhi2
+gen_fix_trunctfhi2
+gen_fix_truncdfhi2
+gen_fix_truncsfhi2
+gen_floatsisf2
+gen_floatdisf2
+gen_floatsidf2
+gen_floatdidf2
+gen_adddi3
+gen_addsi3
+gen_addhi3
+gen_addqi3
+gen_addxf3
+gen_addtf3
+gen_adddf3
+gen_addsf3
+gen_subdi3
+gen_subsi3
+gen_subhi3
+gen_subqi3
+gen_subxf3
+gen_subtf3
+gen_subdf3
+gen_subsf3
+gen_muldi3
+gen_mulsi3
+gen_mulhi3
+gen_mulqi3
+gen_umulqihi3
+gen_mulqihi3
+gen_umulditi3
+gen_umulsidi3
+gen_mulditi3
+gen_mulsidi3
+gen_umuldi3_highpart
+gen_umulsi3_highpart
+gen_smuldi3_highpart
+gen_smulsi3_highpart
+gen_mulxf3
+gen_multf3
+gen_muldf3
+gen_mulsf3
+gen_divxf3
+gen_divtf3
+gen_divdf3
+gen_divsf3
+gen_divmoddi4
+gen_divmodsi4
+gen_udivmodhi4
+gen_testsi_ccno_1
+gen_testqi_ccz_1
+gen_testqi_ext_ccno_0
+gen_anddi3
+gen_andsi3
+gen_andhi3
+gen_andqi3
+gen_iordi3
+gen_iorsi3
+gen_iorhi3
+gen_iorqi3
+gen_xordi3
+gen_xorsi3
+gen_xorhi3
+gen_xorqi3
+gen_xorqi_cc_ext_1
+gen_negdi2
+gen_negsi2
+gen_neghi2
+gen_negqi2
+gen_negsf2
+gen_negdf2
+gen_negxf2
+gen_negtf2
+gen_abssf2
+gen_absdf2
+gen_absxf2
+gen_abstf2
+gen_one_cmpldi2
+gen_one_cmplsi2
+gen_one_cmplhi2
+gen_one_cmplqi2
+gen_ashldi3
+gen_x86_shift_adj_1
+gen_x86_shift_adj_2
+gen_ashlsi3
+gen_ashlhi3
+gen_ashlqi3
+gen_ashrdi3
+gen_x86_shift_adj_3
+gen_ashrsi3
+gen_ashrhi3
+gen_ashrqi3
+gen_lshrdi3
+gen_lshrsi3
+gen_lshrhi3
+gen_lshrqi3
+gen_rotldi3
+gen_rotlsi3
+gen_rotlhi3
+gen_rotlqi3
+gen_rotrdi3
+gen_rotrsi3
+gen_rotrhi3
+gen_rotrqi3
+gen_extv
+gen_extzv
+gen_insv
+gen_seq
+gen_sne
+gen_sgt
+gen_sgtu
+gen_slt
+gen_sltu
+gen_sge
+gen_sgeu
+gen_sle
+gen_sleu
+gen_sunordered
+gen_sordered
+gen_suneq
+output_213
+output_214
+output_215
+output_216
+output_217
+output_218
+output_219
+output_220
+output_221
+output_222
+output_223
+output_224
+output_225
+output_226
+output_227
+output_228
+output_283
+output_290
+output_292
+output_296
+output_300
+output_403
+output_404
+output_408
+output_409
+output_410
+output_411
+output_412
+output_413
+output_414
+output_415
+output_416
+output_417
+output_507
+output_508
+output_509
+output_510
+output_511
+output_512
+output_518
+output_519
+output_525
+output_526
+output_527
+output_528
+output_529
+output_530
+output_531
+output_532
+output_533
+output_534
+output_535
+output_536
+output_537
+output_538
+output_539
+output_540
+output_541
+output_542
+output_543
+output_544
+output_545
+output_546
+output_547
+output_548
+output_549
+output_550
+output_551
+output_552
+output_553
+output_554
+output_555
+output_556
+output_557
+output_558
+output_635
+output_636
+output_651
+output_652
+output_653
+output_654
+output_655
+output_656
+output_658
+output_728
+output_730
+output_805
+output_832
+output_833
+note_modified_parmregs
+compare_blocks
+find_block
+mark_stores
+returnjump_p_1
+lhd_do_nothing
+lhd_return_tree
+lhd_print_tree_nothing
+lhd_clear_binding_stack
+lhd_tree_inlining_walk_subtrees
+lhd_tree_inlining_add_pending_fn_decls
+lhd_tree_inlining_tree_chain_matters_p
+lhd_tree_inlining_auto_var_in_fn_p
+lhd_tree_inlining_copy_res_decl_for_inlining
+lhd_tree_inlining_start_inlining
+lhd_tree_inlining_end_inlining
+lhd_tree_dump_dump_tree
+lhd_tree_dump_type_quals
+reg_becomes_live.5271
+zap_lists
+reg_is_set
+qty_sugg_compare_1
+qty_compare_1
+no_equiv
+validate_equiv_mem_from_store
+cmp_combine_givs_stats
+note_set_pseudo_multiple_uses
+check_store
+check_insn_for_givs
+record_initial
+check_insn_for_bivs
+replace_label
+note_reg_stored
+replace_loop_reg
+replace_loop_mem
+note_addr_stored
+insert_loop_mem
+invalidate_loops_containing_label
+gen_move_insn
+mark_optab
+print_rtl
+address_operand
+memory_operand
+general_operand
+register_operand
+memory_address_p
+validate_replace_src_1
+scratch_operand
+immediate_operand
+const_int_operand
+nonimmediate_operand
+nonmemory_operand
+push_operand
+comparison_operator
+flags_set_1
+record_stack_memrefs
+note_sets
+kill_clobbered_value
+kill_autoinc_value
+kill_set_value
+strict_memory_address_p
+parms_set
+sets_likely_spilled_1
+init_ready_list
+can_schedule_ready_p
+schedule_more_p
+new_ready
+rgn_rank
+rgn_print_insn
+contributes_to_priority
+compute_jump_reg_dependencies
+simplify_plus_minus_op_data_cmp
+simplify_binary_real
+simplify_binary_is2orm1
+simplify_unary_real
+check_fold_consts
+rename_insn_1
+ssa_rename_from_hash_function
+ssa_rename_from_equal
+ssa_rename_from_delete
+find_evaluations_1
+rename_equivalent_regs_in_insn
+record_canonical_element_1
+coalesce_reg_in_phi
+mark_reg_in_phi
+mark_references
+propagate_necessity_through_operand
+note_inherently_necessary_set
+inherently_necessary_register_1
+alloc_node.7281
+mark_ident_hash
+mark_ident
+do_abort
+float_signal
+crash_signal
+decl_name
+set_decl_assembler_name
+type_hash_hash
+type_hash_eq
+type_hash_marked_p
+type_hash_mark
+make_node
+build_real_from_int_cst_1
+default_set_default_type_attributes
+default_insert_attributes
+default_function_attribute_inlinable_p
+default_ms_bitfield_layout_p
+merge_type_attributes
+merge_decl_attributes
+expand_call_inline
+copy_body_r
+default_exception_section
+default_named_section_asm_out_destructor
+default_named_section_asm_out_constructor
+mark_constant
+default_assemble_integer
+const_str_htab_hash
+const_str_htab_eq
+const_str_htab_del
+in_named_entry_hash
+in_named_entry_eq
+mark_const_hash_entry
+mark_const_str_htab
+mark_const_str_htab_1
+default_section_type_flags
+default_elf_asm_named_section
+ggc_marked_p
+ix86_init_builtins
+ix86_expand_builtin
+ix86_init_machine_status
+ix86_mark_machine_status
+ix86_free_machine_status
+x86_64_general_operand
+x86_64_szext_general_operand
+x86_64_nonmemory_operand
+x86_64_movabs_operand
+x86_64_szext_nonmemory_operand
+x86_64_immediate_operand
+x86_64_zext_immediate_operand
+const_int_1_operand
+const_int_1_31_operand
+symbolic_operand
+call_insn_operand
+constant_call_address_operand
+const0_operand
+const248_operand
+incdec_operand
+shiftdi_operand
+general_no_elim_operand
+nonmemory_no_elim_operand
+q_regs_operand
+sse_comparison_operator
+ix86_comparison_operator
+fcmov_comparison_operator
+promotable_binary_operator
+cmp_fp_expander_operand
+ext_register_operand
+binary_fp_operator
+arith_or_logical_operator
+cmpsi_operand
+aligned_operand
+ix86_adjust_cost
+ix86_issue_rate
+ix86_variable_issue
+ix86_sched_init
+ix86_sched_reorder
+ix86_comp_type_attributes
+ix86_handle_cdecl_attribute
+ix86_handle_regparm_attribute
+xmalloc
+hash_pointer
+eq_pointer
+splay_tree_xmalloc_allocate
+splay_tree_xmalloc_deallocate
+splay_tree_compare_ints
+splay_tree_compare_pointers
+Inst:   call void asm sideeffect "bndmk ($0,$1), %bnd0;      bndstx %bnd0, ($2,$3);", "r,r,r,r,~{bnd0},~{dirflag},~{fpsr},~{flags}"(i64 %9, i64 %10, i8* %11, i64 %12) #7, !srcloc !3 => 0
+Inst:   call void asm sideeffect "bndldx ($1,$2), %bnd0;      bndmov %bnd0, $0;", "=*m,r,r,~{bnd0},~{dirflag},~{fpsr},~{flags}"([2 x i64]* %5, i8* %6, i64 %7) #7, !srcloc !3 => 0
+Inst:   call void asm sideeffect ".byte 0x48, 0x0f,0xae,0x2f\0A\09", "{di},*m,{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(%struct.xsave_struct* %12, %struct.xsave_struct* %13, i32 %14, i32 %15) #7, !srcloc !3 => 0
+Inst:   call void asm sideeffect ".byte 0x48, 0x0f,0xae,0x27\0A\09", "{di},*m,{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(%struct.xsave_struct* %19, %struct.xsave_struct* %20, i32 %21, i32 %22) #7, !srcloc !3 => 0
+Inst:   %12 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 0, i32 0) #3, !srcloc !3 => 0
+Inst:   %27 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #3, !srcloc !4 => 0
+Inst:   %37 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 13, i32 0) #3, !srcloc !5 => 0
+Inst:   %10 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 %9) #3, !srcloc !3 => 0
+Inst:   call void %22(%union.tree_node* %24, %union.tree_node** %5) => 1
+Inst:   %319 = call %union.tree_node* %312(%union.tree_node** %313, %union.tree_node* %314, %union.tree_node* %315, i32 %316, i8* %13) => 27
+Inst:   call void %34(%union.tree_node* %36) => 12
+Inst:   call void %54(i32 %55, i8* %58) => 8
+Inst:   call void %104(i32 %105) => 6
+Inst:   call void %9(i32 %18, i8* %21) => 8
+Inst:   call void %9(i32 %18, i8* %22) => 8
+Inst:   call void %3(i32 %4, i8* %5) => 8
+Inst:   call void %53(%union.tree_node* %54) => 12
+Inst:   call void %50(%union.tree_node* %51) => 12
+Inst:   call void %55(%union.tree_node* %56) => 12
+Inst:   call void %218(%union.tree_node* %219) => 12
+Inst:   %241 = call %union.tree_node* %237(%union.tree_node* %238, %union.tree_node* %239) => 2
+Inst:   call void %1849(%union.tree_node* %1850) => 12
+Inst:   call void %2215(%union.tree_node* %2216) => 12
+Inst:   %625 = call zeroext i1 %622(%union.tree_node* %623) => 4
+Inst:   call void %613(%union.tree_node* %614) => 12
+Inst:   call void %34(%union.tree_node* %35) => 12
+Inst:   call void %113() => 17
+Inst:   call void %257(%struct.rtx_def* %279, i32 65535) => 2
+Inst:   call void %300(%struct.rtx_def* %322, i32 65535) => 2
+Inst:   %47 = call %union.tree_node* %43(%union.tree_node* %44, %union.tree_node* %45) => 2
+Inst:   %251 = call i32 %247(%union.tree_node* %248, %union.tree_node* %249) => 2
+Inst:   call void %82(%union.tree_node* %83) => 12
+Inst:   %13 = call i8* %10(%union.tree_node* %11, i32 2) => 1
+Inst:   %50 = call %union.tree_node* %42(%union.tree_node* %43, i32 %48) => 1
+Inst:   call void %255() => 17
+Inst:   %13 = call i32 %10(i32 %11) => 0
+Inst:   call void %144(%union.tree_node* %145) => 12
+Inst:   call void %90(%union.tree_node* %91) => 12
+Inst:   call void %27(%union.tree_node* %28) => 12
+Inst:   call void %20(%union.tree_node* %21) => 12
+Inst:   call void %47(%union.tree_node* %48) => 12
+Inst:   call void %13(%union.tree_node* %14) => 12
+Inst:   %44 = call i8* %41(%union.tree_node* %42, i32 2) => 1
+Inst:   call void bitcast (void (%struct.output_buffer*, i8*)* @output_add_string to void (%struct.output_buffer.315*, i8*)*)(%struct.output_buffer.315* %48, i8* %49) => 0
+Inst:   call void %177(%struct.cpp_reader* %178) => 26
+Inst:   call void %32(%struct.cpp_reader* %33, %struct.line_map* %36) => 1
+Inst:   call void %23(%struct.cpp_reader* %24, i32 %27, %struct.cpp_hashnode* %28) => 2
+Inst:   call void %24(%struct.cpp_reader* %25, i32 %28, %struct.cpp_hashnode* %29) => 2
+Inst:   call void %65(%struct.cpp_reader* %66, %struct.cpp_token* %67, i32 1) => 1
+Inst:   call void %77(%struct.cpp_reader* %78) => 26
+Inst:   call void %93(%struct.cpp_reader* %94, i32 %97) => 1
+Inst:   call void %23(%struct.cpp_reader* %24, i32 %27, %struct.ht_identifier* %30) => 1
+Inst:   call void %58(%struct.cpp_reader* %59, i32 %62, i8* %67, %struct.cpp_token* %68) => 0
+Inst:   call void %27(%struct.cpp_reader* %28) => 26
+Inst:   call void %90(%struct.cpp_reader* %91, %struct.cpp_token* %92, i32 %97) => 1
+Inst:   call void %41(%struct.cpp_reader* %42, i8* %45) => 4
+Inst:   %118 = call i64 %115(%union.tree_node* %116) => 1
+Inst:   %497 = call i64 %494(%union.tree_node* %495) => 1
+Inst:   %38 = call i32 %34(%struct.rtx_def* %35, i32 1) => 43
+Inst:   %45 = call i32 %41(%struct.rtx_def* %42, i32 1) => 43
+Inst:   %67 = call i32 %63(%struct.rtx_def* %64, i32 1) => 43
+Inst:   %74 = call i32 %70(%struct.rtx_def* %71, i32 1) => 43
+Inst:   %7 = call zeroext i1 %5() => 1
+Inst:   %63 = call %union.tree_node* %60(%union.tree_node* %61) => 2
+Inst:   %56 = call %struct.rtx_def* %49(%union.tree_node* %50, %struct.rtx_def* %51, %struct.rtx_def* %52, i32 %53, i32 %54) => 1
+Inst:   %131 = call i32 %126(%struct.rtx_def* %127, i32 %128) => 43
+Inst:   %152 = call %struct.rtx_def* (%struct.rtx_def*, ...) %142(%struct.rtx_def* %143, %struct.rtx_def* %145, %struct.rtx_def* %146, %struct.rtx_def* %149) => 40
+Inst:   %137 = call i32 %128(%struct.rtx_def* %129, i32 %134) => 43
+Inst:   %37 = call zeroext i1 %35() => 1
+Inst:   call void %197(%struct.loop* %198, %struct._IO_FILE* %199, i32 %200) => 0
+Inst:   call void %165(%union.tree_node* %166) => 12
+Inst:   call void %233(%union.tree_node* %234) => 12
+Inst:   call void %35(%union.tree_node* %36) => 12
+Inst:   call void %208(%union.tree_node* %209) => 12
+Inst:   call void %104(%union.tree_node* %105) => 12
+Inst:   call void %104(%union.tree_node* %105) => 12
+Inst:   call void %126(%union.tree_node* %127) => 12
+Inst:   call void %209(i32 %210, i32* %23, %struct.bitmap_head_def* %215, %struct.bitmap_head_def* %220, %struct.bitmap_head_def* %225, %struct.bitmap_head_def* %230, i8* %231) => 3
+Inst:   call void %5(%struct.diagnostic_context* %6, i8* %7) => 1
+Inst:   %416 = call i32 %412(%struct.output_buffer* %413) => 0
+Inst:   call void %34(i8* %35, [1 x %struct.__va_list_tag]* %4) => 0
+Inst:   call void %33(%struct.output_buffer* %34, %struct.diagnostic_context* %35) => 2
+Inst:   call void %41(%struct.output_buffer* %42, %struct.diagnostic_context* %43) => 2
+Inst:   %63 = call i8* %60(%union.tree_node* %61, i32 2) => 1
+Inst:   %21 = call i8* %18(%union.tree_node* %19, i32 2) => 1
+Inst:   call void %71() => 17
+Inst:   call void %65(%union.tree_node* %66) => 12
+Inst:   call void %97(%union.tree_node* %98) => 12
+Inst:   %12 = call i8* %5(%union.tree_node* %6, i32 %10) => 1
+Inst:   %19 = call i8* %16(i8* %17) => 1
+Inst:   %122 = call i8* %119(i8* %120) => 1
+Inst:   %160 = call zeroext i1 %152(%union.tree_node* %157) => 4
+Inst:   %33 = call %union.tree_node* %31() => 0
+Inst:   call void %17(%struct.rtx_def* %20) => 2
+Inst:   %70 = call i32 %66(%union.tree_node* %67, %union.tree_node* %68) => 2
+Inst:   %42 = call i32 %35(%union.tree_node* %39, %union.tree_node* %40) => 2
+Inst:   call void %25() => 17
+Inst:   %76 = call %struct.rtx_def* %71(%struct.rtx_def* %72, %struct.rtx_def* %73) => 188
+Inst:   %94 = call %struct.rtx_def* %89(%struct.rtx_def* %90, %struct.rtx_def* %91) => 188
+Inst:   %30 = call %struct.rtx_def* %25(%struct.rtx_def* %26, %struct.rtx_def* %27) => 188
+Inst:   %42 = call %struct.rtx_def* %37(%struct.rtx_def* %38, %struct.rtx_def* %39) => 188
+Inst:   %170 = call i32 %165(%struct.rtx_def* %166, i32 %167) => 43
+Inst:   %418 = call i32 %413(%struct.rtx_def* %414, i32 %415) => 43
+Inst:   %493 = call %struct.rtx_def* (%struct.rtx_def*, ...) %467(%struct.rtx_def* %489, %struct.rtx_def* %490) => 188
+Inst:   %837 = call i32 %833(%struct.rtx_def* %834, i32 0) => 43
+Inst:   %1138 = call i32 %1133(%struct.rtx_def* %1134, i32 %1135) => 43
+Inst:   %769 = call i32 %760(%struct.rtx_def* %761, i32 %766) => 43
+Inst:   %972 = call i32 %967(%struct.rtx_def* %968, i32 %969) => 43
+Inst:   %1075 = call i32 %1066(%struct.rtx_def* %1067, i32 %1072) => 43
+Inst:   %1281 = call i32 %1276(%struct.rtx_def* %1277, i32 %1278) => 43
+Inst:   %376 = call i32 %371(%struct.rtx_def* %372, i32 %373) => 43
+Inst:   %390 = call %struct.rtx_def* (%struct.rtx_def*, ...) %386(%struct.rtx_def* %387) => 59
+Inst:   %71 = call %struct.rtx_def* (%struct.rtx_def*, ...) %66(%struct.rtx_def* %67, %struct.rtx_def* %68) => 188
+Inst:   %252 = call %struct.rtx_def* (%struct.rtx_def*, ...) %239(%struct.rtx_def* %246, %struct.rtx_def* %249) => 188
+Inst:   %277 = call %struct.rtx_def* (%struct.rtx_def*, ...) %264(%struct.rtx_def* %271, %struct.rtx_def* %274) => 188
+Inst:   %438 = call %struct.rtx_def* (%struct.rtx_def*, ...) %433(%struct.rtx_def* %434, %struct.rtx_def* %435) => 188
+Inst:   %455 = call %struct.rtx_def* (%struct.rtx_def*, ...) %450(%struct.rtx_def* %451, %struct.rtx_def* %452) => 188
+Inst:   %108 = call %struct.rtx_def* (%struct.rtx_def*, ...) %103(%struct.rtx_def* %104, %struct.rtx_def* %105) => 188
+Inst:   %90 = call i32 %85(%struct.rtx_def* %86, i32 %87) => 43
+Inst:   %105 = call %struct.rtx_def* (%struct.rtx_def*, ...) %101(%struct.rtx_def* %102) => 59
+Inst:   %232 = call i32 %228(%struct.rtx_def* %229, i32 51) => 43
+Inst:   %254 = call i32 %250(%struct.rtx_def* %251, i32 51) => 43
+Inst:   %276 = call i32 %272(%struct.rtx_def* %273, i32 0) => 43
+Inst:   %304 = call i32 %299(%struct.rtx_def* %300, i32 %301) => 43
+Inst:   %322 = call %struct.rtx_def* (%struct.rtx_def*, ...) %315(%struct.rtx_def* %316, %struct.rtx_def* %317, %struct.rtx_def* %318, %struct.rtx_def* %319) => 40
+Inst:   %4278 = call %struct.rtx_def* %4272(%union.tree_node* %4273, %struct.rtx_def* %4274, i32 %4275, i32 %4276) => 1
+Inst:   %9312 = call %struct.rtx_def* %9306(%union.tree_node* %9307, %struct.rtx_def* %9308, i32 %9309, i32 %9310) => 1
+Inst:   %583 = call i32 %579(%struct.rtx_def* %580, %union.tree_node* %581) => 1
+Inst:   %744 = call %struct.rtx_def* %740(%struct.rtx_def* %741) => 59
+Inst:   %271 = call i32 %266(%struct.rtx_def* %267, i32 %268) => 43
+Inst:   %286 = call i32 %281(%struct.rtx_def* %282, i32 %283) => 43
+Inst:   %301 = call i32 %296(%struct.rtx_def* %297, i32 %298) => 43
+Inst:   %421 = call i32 %416(%struct.rtx_def* %417, i32 %418) => 43
+Inst:   %436 = call i32 %431(%struct.rtx_def* %432, i32 %433) => 43
+Inst:   %451 = call i32 %446(%struct.rtx_def* %447, i32 %448) => 43
+Inst:   %469 = call %struct.rtx_def* (%struct.rtx_def*, ...) %463(%struct.rtx_def* %464, %struct.rtx_def* %465, %struct.rtx_def* %466) => 218
+Inst:   %532 = call i32 %527(%struct.rtx_def* %528, i32 %529) => 43
+Inst:   %555 = call %struct.rtx_def* (%struct.rtx_def*, ...) %549(%struct.rtx_def* %550, %struct.rtx_def* %551, %struct.rtx_def* %552) => 218
+Inst:   %193 = call i32 %189(%struct.rtx_def* %190, i32 51) => 43
+Inst:   %215 = call i32 %211(%struct.rtx_def* %212, i32 0) => 43
+Inst:   %243 = call i32 %238(%struct.rtx_def* %239, i32 %240) => 43
+Inst:   %260 = call %struct.rtx_def* (%struct.rtx_def*, ...) %254(%struct.rtx_def* %255, %struct.rtx_def* %256, %struct.rtx_def* %257) => 218
+Inst:   %78 = call %struct.rtx_def* %68(i8* %71, i64 %74, i32 %75) => 4
+Inst:   %84 = call %struct.rtx_def* (%struct.rtx_def*, ...) %79(%struct.rtx_def* %80, %struct.rtx_def* %81) => 188
+Inst:   %122 = call %struct.rtx_def* %116(i8* %117, i64 %118, i32 %119) => 4
+Inst:   %377 = call i32 %373(%struct.rtx_def* %374, i32 51) => 43
+Inst:   %399 = call i32 %395(%struct.rtx_def* %396, i32 51) => 43
+Inst:   %421 = call i32 %417(%struct.rtx_def* %418, i32 0) => 43
+Inst:   %449 = call i32 %444(%struct.rtx_def* %445, i32 %446) => 43
+Inst:   %467 = call %struct.rtx_def* (%struct.rtx_def*, ...) %460(%struct.rtx_def* %461, %struct.rtx_def* %462, %struct.rtx_def* %463, %struct.rtx_def* %464) => 40
+Inst:   call void %19(i32 %20, i8* %21) => 8
+Inst:   call void %49(%struct._IO_FILE* %50, i64 %51) => 1
+Inst:   call void %3(i32 %4) => 6
+Inst:   call void %7(%struct._IO_FILE* %8, i64 %9) => 1
+Inst:   call void %13() => 17
+Inst:   call void %102(%struct._IO_FILE* %103) => 1
+Inst:   call void %107(%struct._IO_FILE* %108) => 1
+Inst:   call void %113(i32 %114) => 6
+Inst:   call void %150(i32 %151, i32 %152) => 5
+Inst:   call void %202(i32 %203, i32 %204) => 5
+Inst:   call void %343(i32 %344, i8* %345) => 8
+Inst:   call void %434(%struct.rtx_def* %435) => 2
+Inst:   %37 = call i8* %33(%struct.rtx_def** getelementptr inbounds (%struct.recog_data, %struct.recog_data* @recog_data, i32 0, i32 0, i32 0), %struct.rtx_def* %34) => 169
+Inst:   %26 = call i32 %21(%union.tree_node* %24) => 8
+Inst:   call void %43(%struct.function* %44) => 6
+Inst:   call void %137(%struct.function* %138) => 6
+Inst:   call void %144(%struct.function* %145) => 6
+Inst:   call void %18(%struct.function* %19) => 6
+Inst:   call void %6(%struct.function* %7) => 6
+Inst:   call void %10(%struct.function* %11) => 6
+Inst:   %10 = call i8* %7(%union.tree_node* %8, i32 2) => 1
+Inst:   call void %26(%struct.rtx_def* %27, i8* %28) => 3
+Inst:   call void %76(%struct.rtx_def* %77, i8* %78) => 3
+Inst:   call void %76(%struct.function* %77) => 6
+Inst:   call void %83(%struct.function* %84) => 6
+Inst:   call void %36(i8* %37) => 35
+Inst:   call void %989(%union.tree_node* %990) => 12
+Inst:   %15 = call i32 %10(i8* %12) => 17
+Inst:   call void %30(i8* %32) => 35
+Inst:   %34 = call i32 %29(%struct.rtx_def* %30, %struct.rtx_def* %31) => 29
+Inst:   %71 = call i32 %66(%struct.rtx_def* %67, %struct.rtx_def* %68) => 29
+Inst:   %85 = call i32 %80(%struct.rtx_def* %81, %struct.rtx_def* %82) => 29
+Inst:   %48 = call i32 %40(%struct.rtx_def* %44, %struct.rtx_def* %45) => 29
+Inst:   %31 = call i32 %27(%struct.rtx_def* %28) => 42
+Inst:   %139 = call i32 %133(%struct.rtx_def* %134, %struct.rtx_def* %135, %struct.rtx_def* %136, i32 %137) => 1
+Inst:   call void %91(%struct.ready_list* %5) => 1
+Inst:   call void %97(%struct._IO_FILE* %98, i32 %99, i32 %101) => 1
+Inst:   %111 = call i32 %108() => 2
+Inst:   %137 = call i32 %130(%struct._IO_FILE* %131, i32 %132, %struct.rtx_def** %133, i32* %134, i32 %135) => 1
+Inst:   %151 = call %struct.rtx_def* %147(i32 %148, %struct.rtx_def* %149) => 0
+Inst:   %173 = call i32 %170() => 2
+Inst:   %196 = call i32 %192(%struct.rtx_def* %193) => 42
+Inst:   %212 = call i32 %206(%struct._IO_FILE* %207, i32 %208, %struct.rtx_def* %209, i32 %210) => 1
+Inst:   %242 = call i32 %228(%struct._IO_FILE* %229, i32 %230, %struct.rtx_def** %238, i32* %239, i32 %240) => 1
+Inst:   call void %254(%struct._IO_FILE* %255, i32 %256) => 0
+Inst:   %34 = call i8* %30(%struct.rtx_def* %31, i32 0) => 1
+Inst:   %94 = call i8* %90(%struct.rtx_def* %91, i32 0) => 1
+Inst:   %31 = call i8* %23(%struct.rtx_def* %28, i32 0) => 1
+Inst:   %33 = call i8* %29(%struct.rtx_def* %30, i32 0) => 1
+Inst:   %146 = call i32 %142(%struct.rtx_def* %143) => 42
+Inst:   %160 = call i8* %156(%struct.rtx_def* %157, i32 0) => 1
+Inst:   %19 = call i32 %6(%struct.rtx_def* %7, i32 %17) => 43
+Inst:   %86 = call i32 %81(%struct.rtx_def* %82, %struct.rtx_def* %83) => 29
+Inst:   %83 = call i32 %78(%struct.rtx_def* %79, %struct.rtx_def* %80) => 29
+Inst:   %31 = call i32 %29() => 2
+Inst:   %24 = call i64 %20(i8* %21) => 1
+Inst:   %58 = call zeroext i1 %51(i8* %54, i8* %55) => 1
+Inst:   %78 = call %struct.hash_entry* %73(%struct.hash_entry* null, %struct.hash_table* %74, i8* %75) => 1
+Inst:   %92 = call i8* %86(%struct.obstack* %88, i8* %89) => 0
+Inst:   %128 = call %struct.ht_identifier* %124(%struct.ht* %125) => 2
+Inst:   %37 = call i32 %28(%struct.cpp_reader* %31, %struct.ht_identifier* %33, i8* %34) => 2
+Inst:   %60 = call zeroext i1 %57(%union.tree_node* %58) => 4
+Inst:   %915 = call i32 %906(%struct.rtx_def* %907, i32 %912) => 43
+Inst:   %49 = call %struct.rtx_def* %42(%struct.loop* %43, %struct.rtx_def* %44, i32 %45, i32 %46) => 2
+Inst:   %588 = call i32 %583(%struct.rtx_def* %584, i32 %585) => 43
+Inst:   %610 = call i32 %605(%struct.rtx_def* %606, i32 %607) => 43
+Inst:   %632 = call i32 %627(%struct.rtx_def* %628, i32 %629) => 43
+Inst:   %648 = call %struct.rtx_def* (%struct.rtx_def*, ...) %642(%struct.rtx_def* %643, %struct.rtx_def* %644, %struct.rtx_def* %645) => 218
+Inst:   %118 = call i32 %113(%struct.rtx_def* %114, i32 %115) => 43
+Inst:   %137 = call i32 %132(%struct.rtx_def* %133, i32 %134) => 43
+Inst:   %152 = call %struct.rtx_def* (%struct.rtx_def*, ...) %147(%struct.rtx_def* %148, %struct.rtx_def* %149) => 188
+Inst:   %61 = call i32 %56(%struct.rtx_def* %57, i32 %58) => 43
+Inst:   %87 = call %struct.rtx_def* (%struct.rtx_def*, ...) %80(%struct.rtx_def* %81, %struct.rtx_def* %82, %struct.rtx_def* %83, %struct.rtx_def* %84) => 40
+Inst:   %122 = call %struct.rtx_def* (%struct.rtx_def*, ...) %118(%struct.rtx_def* %119) => 59
+Inst:   %134 = call %struct.rtx_def* %130(%struct.rtx_def* %131) => 59
+Inst:   %169 = call %struct.rtx_def* (%struct.rtx_def*, ...) %164(%struct.rtx_def* %165, %struct.rtx_def* %166) => 188
+Inst:   %181 = call %struct.rtx_def* %177(%struct.rtx_def* %178) => 59
+Inst:   %49 = call i32 %34(%struct.rtx_def* %35, i32 %46) => 43
+Inst:   %289 = call i32 %284(%struct.rtx_def* %285, i32 %286) => 43
+Inst:   %308 = call i32 %303(%struct.rtx_def* %304, i32 %305) => 43
+Inst:   %327 = call i32 %322(%struct.rtx_def* %323, i32 %324) => 43
+Inst:   %342 = call i32 %337(%struct.rtx_def* %338, i32 %339) => 43
+Inst:   %357 = call %struct.rtx_def* (%struct.rtx_def*, ...) %350(%struct.rtx_def* %351, %struct.rtx_def* %352, %struct.rtx_def* %353, %struct.rtx_def* %354) => 40
+Inst:   %146 = call i32 %141(%struct.rtx_def* %142, i32 %143) => 43
+Inst:   %165 = call i32 %160(%struct.rtx_def* %161, i32 %162) => 43
+Inst:   %180 = call %struct.rtx_def* (%struct.rtx_def*, ...) %175(%struct.rtx_def* %176, %struct.rtx_def* %177) => 188
+Inst:   %49 = call i32 %44(%struct.rtx_def* %45, i32 %46) => 43
+Inst:   %72 = call i32 %63(%struct.rtx_def* %64, i32 %69) => 43
+Inst:   %100 = call %struct.rtx_def* (%struct.rtx_def*, ...) %95(%struct.rtx_def* %96, %struct.rtx_def* %97) => 188
+Inst:   %15 = call i32 %6(%struct.rtx_def* %7, i32 %12) => 43
+Inst:   %158 = call i32 %145(%struct.rtx_def* %146, i32 %155) => 43
+Inst:   %192 = call i32 %179(%struct.rtx_def* %180, i32 %189) => 43
+Inst:   %227 = call i32 %214(%struct.rtx_def* %215, i32 %224) => 43
+Inst:   %267 = call %struct.rtx_def* (%struct.rtx_def*, ...) %260(%struct.rtx_def* %261, %struct.rtx_def* %262, %struct.rtx_def* %263, %struct.rtx_def* %264) => 40
+Inst:   %37 = call i32 %24(%struct.rtx_def* %25, i32 %34) => 43
+Inst:   %60 = call i32 %47(%struct.rtx_def* %48, i32 %57) => 43
+Inst:   %83 = call i32 %70(%struct.rtx_def* %71, i32 %80) => 43
+Inst:   %97 = call %struct.rtx_def* (%struct.rtx_def*, ...) %91(%struct.rtx_def* %92, %struct.rtx_def* %93, %struct.rtx_def* %94) => 218
+Inst:   %43 = call i32 %30(%struct.rtx_def* %31, i32 %40) => 43
+Inst:   %66 = call i32 %53(%struct.rtx_def* %54, i32 %63) => 43
+Inst:   %89 = call i32 %76(%struct.rtx_def* %77, i32 %86) => 43
+Inst:   %103 = call %struct.rtx_def* (%struct.rtx_def*, ...) %97(%struct.rtx_def* %98, %struct.rtx_def* %99, %struct.rtx_def* %100) => 218
+Inst:   %50 = call i32 %37(%struct.rtx_def* %38, i32 %47) => 43
+Inst:   %73 = call i32 %60(%struct.rtx_def* %61, i32 %70) => 43
+Inst:   %96 = call i32 %83(%struct.rtx_def* %84, i32 %93) => 43
+Inst:   %43 = call i32 %30(%struct.rtx_def* %31, i32 %40) => 43
+Inst:   %66 = call i32 %53(%struct.rtx_def* %54, i32 %63) => 43
+Inst:   %89 = call i32 %76(%struct.rtx_def* %77, i32 %86) => 43
+Inst:   %103 = call %struct.rtx_def* (%struct.rtx_def*, ...) %97(%struct.rtx_def* %98, %struct.rtx_def* %99, %struct.rtx_def* %100) => 218
+Inst:   %147 = call %struct.rtx_def* (%struct.rtx_def*, ...) %142(%struct.rtx_def* %143, %struct.rtx_def* %144) => 188
+Inst:   %45 = call %struct.rtx_def* (%struct.rtx_def*, ...) %40(%struct.rtx_def* %41, %struct.rtx_def* %42) => 188
+Inst:   call void %1262(%struct._IO_FILE* %1263, %union.tree_node* %1264, i32 %1265) => 2
+Inst:   call void %1881(%struct._IO_FILE* %1882, %union.tree_node* %1883, i32 %1884) => 2
+Inst:   call void %2294(%struct._IO_FILE* %2295, %union.tree_node* %2296, i32 %2297) => 2
+Inst:   call void %2372(%struct._IO_FILE* %2373, %union.tree_node* %2374, i32 %2375) => 2
+Inst:   call void %127(%struct.rtx_def* %149, i32 65535) => 2
+Inst:   %93 = call i32 %89(i32 2, %struct.rtx_def* %90) => 2
+Inst:   %152 = call i32 %148(i32 2, %struct.rtx_def* %149) => 2
+Inst:   %1600 = call i32 %1591(%struct.rtx_def* %1592, i32 %1597) => 43
+Inst:   %1619 = call i32 %1610(%struct.rtx_def* %1611, i32 %1616) => 43
+Inst:   %196 = call i32 %191(%struct.rtx_def* %192, i32 %193) => 43
+Inst:   %184 = call %struct.rtx_def* (%struct.rtx_def*, ...) %178(%struct.rtx_def* %179, %struct.rtx_def* %180, %struct.rtx_def* %181) => 218
+Inst:   %292 = call %struct.rtx_def* (%struct.rtx_def*, ...) %286(%struct.rtx_def* %287, %struct.rtx_def* %288, %struct.rtx_def* %289) => 218
+Inst:   %470 = call i32 %457(%struct.rtx_def* %458, i32 %467) => 43
+Inst:   call void %131(%struct.rtx_def* %145, %struct.rtx_def* %146, i8* %147) => 43
+Inst:   call void %156(%struct.rtx_def* %157, %struct.rtx_def* %158, i8* %159) => 43
+Inst:   call void %22(%struct.rtx_def** %26, i8* %27) => 2
+Inst:   call void %65(%struct.rtx_def** %69, i8* %70) => 2
+Inst:   call void %86(%struct.rtx_def** %95, i8* %96) => 2
+Inst:   call void %104(%struct.rtx_def** %108, i8* %109) => 2
+Inst:   call void %113(%struct.rtx_def** %117, i8* %118) => 2
+Inst:   call void %134(%struct.rtx_def** %143, i8* %144) => 2
+Inst:   call void %162(%struct.rtx_def** %170, i8* %171) => 2
+Inst:   call void %181(%struct.rtx_def** %185, i8* %186) => 2
+Inst:   call void %195(%struct.rtx_def** %199, i8* %200) => 2
+Inst:   call void %203(%struct.rtx_def** %207, i8* %208) => 2
+Inst:   call void %239(%struct.rtx_def** %243, i8* %244) => 2
+Inst:   call void %249(%struct.rtx_def** %250, i8* %251) => 2
+Inst:   %23 = call i32 %18(%struct.rtx_def** %19, i8* %20) => 22
+Inst:   call void %262(%struct.rtx_def* %263, %struct.bitmap_head_def* %17) => 1
+Inst:   %130 = call i32 %126(%struct.rtx_def* %127) => 42
+Inst:   %32 = call i8* %28(%struct.rtx_def* %29, i32 1) => 1
+Inst:   %63 = call i8* %59(%struct.rtx_def* %60, i32 1) => 1
+Inst:   %113 = call i8* %109(%struct.rtx_def* %110, i32 1) => 1
+Inst:   %118 = call i32 %99(%struct.rtx_def* %100, i32 %109, i32 %114, i8* %115) => 2
+Inst:   %178 = call zeroext i1 %173(%union.tree_node* %176) => 4
+Inst:   %274 = call zeroext i1 %269(%union.tree_node* %272) => 4
+Inst:   %624 = call zeroext i1 %619(%union.tree_node* %622) => 4
+Inst:   %768 = call zeroext i1 %763(%union.tree_node* %766) => 4
+Inst:   call void %830(%struct.record_layout_info_s* %831) => 0
+Inst:   call void %18(i8* %19) => 35
+Inst:   call void %42(%union.tree_node* %43) => 12
+Inst:   call void %102(%union.tree_node* %103) => 12
+Inst:   call void %218(%union.tree_node* %219) => 12
+Inst:   call void %61(%union.tree_node* %62) => 12
+Inst:   call void %117(%union.tree_node* %118) => 12
+Inst:   call void %250(%union.tree_node* %251) => 12
+Inst:   call void %213(%union.tree_node* %214) => 12
+Inst:   call void %261(%union.tree_node* %262) => 12
+Inst:   call void %342(%union.tree_node* %343) => 12
+Inst:   call void %372(%union.tree_node* %373) => 12
+Inst:   call void %1125(%union.tree_node* %1126) => 12
+Inst:   %85 = call i8* %82(%union.tree_node* %83, i32 2) => 1
+Inst:   call void %53(%struct._IO_FILE* %54, %struct.rtx_def* %55) => 2
+Inst:   call void %15() => 17
+Inst:   %125 = call i32 %116(i32 %119, i8** %123) => 1
+Inst:   call void %271() => 17
+Inst:   %18 = call i8* %15(i8* %16) => 1
+Inst:   call void %34(i8* %35) => 35
+Inst:   call void %9() => 17
+Inst:   call void %58(i8* %59) => 35
+Inst:   call void %83() => 17
+Inst:   call void %34(i32 1) => 6
+Inst:   call void %134(%union.tree_node* %135) => 12
+Inst:   %6 = call %union.tree_node* %3(i32 %4) => 1
+Inst:   %146 = call i32 %143(%union.tree_node* %144) => 8
+Inst:   call void %59(%union.tree_node* %60) => 12
+Inst:   call void %6(%union.tree_node** %2) => 0
+Inst:   %72 = call i32 %69(%union.tree_node* %70) => 8
+Inst:   call void %5() => 17
+Inst:   call void %229(%union.tree_node* %230) => 12
+Inst:   call void %251(%union.tree_node* %252) => 12
+Inst:   %346 = call i32 %343(%union.tree_node* %344) => 8
+Inst:   %418 = call i32 %413(i8* %415, %union.tree_node* %416) => 1
+Inst:   %39 = call i32 %36(%union.tree_node* %37) => 8
+Inst:   %78 = call i32 %75(%union.tree_node* %76) => 8
+Inst:   %125 = call i32 %123(%union.tree_node** %4) => 1
+Inst:   %85 = call %union.tree_node* %80(i8* %82, %union.tree_node* %83) => 1
+Inst:   %183 = call i32 %180(%union.tree_node* %181) => 8
+Inst:   call void %635(%union.tree_node* %636) => 12
+Inst:   %58 = call %union.tree_node* %53(%union.tree_node** %54, i32* %12, i8* %55) => 3
+Inst:   %84 = call i32 %80(%union.tree_node* %82) => 8
+Inst:   %329 = call %union.tree_node* %322(%union.tree_node** %323, i32* %12, %union.tree_node* (%union.tree_node**, i32*, i8*)* %324, i8* %325, i8* %327) => 1
+Inst:   %42 = call %union.tree_node* %28(%union.tree_node* %29, %union.tree_node* %39, %union.tree_node* %40) => 1
+Inst:   %60 = call %union.tree_node* %42(%union.tree_node* %43, %union.tree_node* %44, %union.tree_node* %51, i8* %55, i32* %9, i8* %58) => 1
+Inst:   %98 = call i32 %93(%union.tree_node* %95, %union.tree_node* %96) => 2
+Inst:   %279 = call i32 %270(%union.tree_node* %276, %union.tree_node* %277) => 2
+Inst:   %29 = call i32 %25(%union.tree_node* %26, %union.tree_node* %27) => 2
+Inst:   %130 = call i32 %124(%union.tree_node* %128) => 8
+Inst:   %74 = call i32 %70(%union.tree_node* %72) => 8
+Inst:   %96 = call i32 %92(%union.tree_node* %94) => 8
+Inst:   call void %18(i8* %19, i32 %20) => 1
+Inst:   %39 = call i32 %34(%union.tree_node* %35, i8* %36, i32 %37) => 1
+Inst:   call void %169(%union.tree_node* %170) => 12
+Inst:   call void %588(%union.tree_node* %589) => 12
+Inst:   %34 = call zeroext i1 %29(%struct.rtx_def* %30, i32 %31, i32 %32) => 1
+Inst:   call void %53(%union.tree_node* %54) => 12
+Inst:   call void %124(%union.tree_node* %125) => 12
+Inst:   call void %62(%union.tree_node* %63) => 12
+Inst:   call void %80(%union.tree_node* %84) => 12
+Inst:   %13 = call %union.tree_node* %10(%union.tree_node* %11) => 2
+Inst:   %8 = call %union.tree_node* %5(%union.tree_node* %6) => 2
+Inst:   %766 = call %union.tree_node* %763(%union.tree_node* %764) => 2
+Inst:   %447 = call %union.tree_node* %444(%union.tree_node* %445) => 2
+Inst:   %18 = call %union.tree_node* %15(%union.tree_node* %16) => 2
+Inst:   call void %60(%union.tree_node* %61) => 12
+Inst:   call void %20(%union.tree_node* %21) => 12
+Inst:   call void %14(%union.tree_node* %15) => 12
+Inst:   call void %71(%union.tree_node* %72) => 12
+Inst:   %110 = call i32 %105(%struct.rtx_def* %106, i32 %107) => 43
+Inst:   %129 = call i32 %124(%struct.rtx_def* %125, i32 %126) => 43
+Inst:   %158 = call i32 %153(%struct.rtx_def* %154, i32 %155) => 43
+Inst:   %174 = call %struct.rtx_def* (%struct.rtx_def*, ...) %168(%struct.rtx_def* %169, %struct.rtx_def* %170, %struct.rtx_def* %171) => 218
+Inst:   %258 = call i32 %253(%struct.rtx_def* %254, i32 %255) => 43
+Inst:   %277 = call i32 %272(%struct.rtx_def* %273, i32 %274) => 43
+Inst:   %296 = call i32 %291(%struct.rtx_def* %292, i32 %293) => 43
+Inst:   %324 = call i32 %319(%struct.rtx_def* %320, i32 %321) => 43
+Inst:   %341 = call %struct.rtx_def* (%struct.rtx_def*, ...) %334(%struct.rtx_def* %335, %struct.rtx_def* %336, %struct.rtx_def* %337, %struct.rtx_def* %338) => 40
+Inst:   %421 = call i32 %416(%struct.rtx_def* %417, i32 %418) => 43
+Inst:   %440 = call i32 %435(%struct.rtx_def* %436, i32 %437) => 43
+Inst:   %459 = call i32 %454(%struct.rtx_def* %455, i32 %456) => 43
+Inst:   %476 = call %struct.rtx_def* (%struct.rtx_def*, ...) %470(%struct.rtx_def* %471, %struct.rtx_def* %472, %struct.rtx_def* %473) => 218
+Inst:   %591 = call i32 %586(%struct.rtx_def* %587, i32 %588) => 43
+Inst:   %630 = call i32 %625(%struct.rtx_def* %626, i32 %627) => 43
+Inst:   %646 = call %struct.rtx_def* (%struct.rtx_def*, ...) %640(%struct.rtx_def* %641, %struct.rtx_def* %642, %struct.rtx_def* %643) => 218
+Inst:   %713 = call i32 %708(%struct.rtx_def* %709, i32 %710) => 43
+Inst:   %730 = call %struct.rtx_def* (%struct.rtx_def*, ...) %724(%struct.rtx_def* %725, %struct.rtx_def* %726, %struct.rtx_def* %727) => 218
+Inst:   %839 = call i32 %834(%struct.rtx_def* %835, i32 %836) => 43
+Inst:   %858 = call i32 %853(%struct.rtx_def* %854, i32 %855) => 43
+Inst:   %877 = call i32 %872(%struct.rtx_def* %873, i32 %874) => 43
+Inst:   %906 = call i32 %901(%struct.rtx_def* %902, i32 %903) => 43
+Inst:   %923 = call %struct.rtx_def* (%struct.rtx_def*, ...) %916(%struct.rtx_def* %917, %struct.rtx_def* %918, %struct.rtx_def* %919, %struct.rtx_def* %920) => 40
+Inst:   %986 = call i32 %981(%struct.rtx_def* %982, i32 %983) => 43
+Inst:   %1005 = call i32 %1000(%struct.rtx_def* %1001, i32 %1002) => 43
+Inst:   %1033 = call i32 %1028(%struct.rtx_def* %1029, i32 %1030) => 43
+Inst:   %1049 = call %struct.rtx_def* (%struct.rtx_def*, ...) %1043(%struct.rtx_def* %1044, %struct.rtx_def* %1045, %struct.rtx_def* %1046) => 218
+Inst:   %61 = call i32 %56(%struct.rtx_def* %57, i32 %58) => 43
+Inst:   %95 = call i32 %90(%struct.rtx_def* %91, i32 %92) => 43
+Inst:   %115 = call i32 %110(%struct.rtx_def* %111, i32 %112) => 43
+Inst:   %132 = call %struct.rtx_def* (%struct.rtx_def*, ...) %126(%struct.rtx_def* %127, %struct.rtx_def* %128, %struct.rtx_def* %129) => 218
+Inst:   %44 = call i32 %40(%struct.rtx_def* %41, i32 6) => 43
+Inst:   %61 = call i32 %57(%struct.rtx_def* %58, i32 6) => 43
+Inst:   %92 = call %struct.rtx_def* (%struct.rtx_def*, ...) %86(%struct.rtx_def* %87, %struct.rtx_def* %88, %struct.rtx_def* %89) => 218
+Inst:   %62 = call i32 %57(%struct.rtx_def* %58, i32 %59) => 43
+Inst:   %109 = call i32 %104(%struct.rtx_def* %105, i32 %106) => 43
+Inst:   %126 = call %struct.rtx_def* (%struct.rtx_def*, ...) %121(%struct.rtx_def* %122, %struct.rtx_def* %123) => 188
+Inst:   %82 = call i32 %77(%struct.rtx_def* %78, i32 %79) => 43
+Inst:   %98 = call %struct.rtx_def* (%struct.rtx_def*, ...) %93(%struct.rtx_def* %94, %struct.rtx_def* %95) => 188
+Inst:   %113 = call i32 %108(%struct.rtx_def* %109, i32 %110) => 43
+Inst:   %148 = call i32 %143(%struct.rtx_def* %144, i32 %145) => 43
+Inst:   %167 = call i32 %162(%struct.rtx_def* %163, i32 %164) => 43
+Inst:   %200 = call %struct.rtx_def* (%struct.rtx_def*, ...) %194(%struct.rtx_def* %195, %struct.rtx_def* %196, %struct.rtx_def* %197) => 218
+Inst:   %140 = call i32 %135(%struct.rtx_def* %136, i32 %137) => 43
+Inst:   %160 = call i32 %155(%struct.rtx_def* %156, i32 %157) => 43
+Inst:   %181 = call i32 %176(%struct.rtx_def* %177, i32 %178) => 43
+Inst:   %206 = call %struct.rtx_def* (%struct.rtx_def*, ...) %199(%struct.rtx_def* %200, %struct.rtx_def* %201, %struct.rtx_def* %202, %struct.rtx_def* %203) => 40
+Inst:   %119 = call i32 %114(%struct.rtx_def* %115, i32 %116) => 43
+Inst:   %140 = call i32 %135(%struct.rtx_def* %136, i32 %137) => 43
+Inst:   %164 = call %struct.rtx_def* (%struct.rtx_def*, ...) %158(%struct.rtx_def* %159, %struct.rtx_def* %160, %struct.rtx_def* %161) => 218
+Inst:   call void %6() => 17
+Inst:   call void %38(i8* %45) => 35
+Inst:   call void %38(i8* %45) => 35
+Inst:   %44 = call i32 %39(i8* %40, i8* %41) => 25
+Inst:   %95 = call i32 %90(i8* %91, i8* %92) => 25
+Inst:   %13 = call i32 %9(i8* %10) => 17
+Inst:   %73 = call i32 %68(i8* %69, i8* %70) => 25
+Inst:   %143 = call i32 %138(i8* %139, i8* %140) => 25
+Inst:   %77 = call i32 %73(i8* %74) => 17
+Inst:   %15 = call i32 %11(i8* %12) => 17
+Inst:   call void %37(i8* %39) => 35
+Inst:   %37 = call i32 %32(i8** %33, i8* %34) => 9
+Inst:   %43 = call i8* %39(i32 56, i8* %40) => 1
+Inst:   call void %9(i8* %11, i8* %14) => 1
+Inst:   call void %24(i64 %27) => 1
+Inst:   call void %38(i64 %41) => 1
+Inst:   call void %47(i8* %49, i8* %52) => 1
+Inst:   %27 = call i32 %18(i64 %23, i64 %24) => 3
+Inst:   call void %44(i64 %49) => 1
+Inst:   %67 = call i8* %61(i32 32, i8* %64) => 1
+Inst:   %34 = call i32 %27(i64 %28, i64 %31) => 3
+Inst:   %24 = call i32 %15(i64 %20, i64 %21) => 3
+Inst:   %27 = call i32 %18(i64 %23, i64 %24) => 3
+Inst:   %27 = call i32 %18(i64 %23, i64 %24) => 3
+Inst:   %37 = call i32 %32(%struct.splay_tree_node_s* %33, i8* %34) => 4
+Inst:   %67 = call i32 (i8*, i8*, ...) %65(i8* %63, i8* %64) => 25
+Inst:   %117 = call i32 (i8*, i8*, ...) %115(i8* %113, i8* %114) => 25
+Inst:   %39 = call i32 (i8*, i8*, ...) %37(i8* %35, i8* %36) => 25
+Inst:   %56 = call i32 (i8*, i8*, ...) %54(i8* %48, i8* %53) => 25
+Inst:   %73 = call i32 (i8*, i8*, ...) %71(i8* %69, i8* %70) => 25
+Inst:   %118 = call i32 (i8*, i8*, ...) %116(i8* %114, i8* %115) => 25
+Inst:   %138 = call i32 (i8*, i8*, ...) %136(i8* %134, i8* %135) => 25
+Max Matched: 218
+Total ICT: 451
+Total Allowed Target: 15619

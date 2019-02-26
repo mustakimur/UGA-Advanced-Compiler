@@ -198,18 +198,6 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: noinline nounwind optnone uwtable
-define dso_local void @vCall_reference_monitor(i8* %thisptr, i64 %vptr, i8* %vtarget) #0 {
-entry:
-  %thisptr.addr = alloca i8*, align 8
-  %vptr.addr = alloca i64, align 8
-  %vtarget.addr = alloca i8*, align 8
-  store i8* %thisptr, i8** %thisptr.addr, align 8
-  store i64 %vptr, i64* %vptr.addr, align 8
-  store i8* %vtarget, i8** %vtarget.addr, align 8
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
 define dso_local void @pCall_reference_monitor(i64 %pCallID, i64 %target) #0 {
 entry:
   %pCallID.addr = alloca i64, align 8

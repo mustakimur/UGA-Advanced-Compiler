@@ -1,0 +1,13 @@
+llvm-pass/exec.bc
+llvm-pass/sample.out
+llvm-pass/sample.bc
+llvm-pass/exec_rev.o
+llvm-pass/exec_nocfg.o
+llvm-pass/exec_nocfg.bc
+llvm-pass/exec_nocfg.asm
+llvm-pass/exec_nocfg
+llvm-pass/exec_cfg
+llvm-pass/exec_cfg.bc
+llvm-pass/exec_cfg.o
+llvm-pass/exec.o
+llvm-pass/cfi.bc

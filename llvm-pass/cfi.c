@@ -44,33 +44,6 @@ int cfi_hash_check(unsigned long call_point, unsigned long call_target) {
   return 0;
 }
 
-void vCall_reference_monitor(void *thisptr, unsigned long vptr,
-                             void *vtarget) { /*
-unsigned long vCall_point = (unsigned long)__builtin_return_address(0);
-
-load_mpx_metadata(thisptr, vptr);
-unsigned long vCall_target = (unsigned long)vtarget;
-
-if (ret_metadata->low == 0 || ret_metadata->high == 0) {
-fprintf(stderr, "[OCSCFI-OBJ] Something wrong with mpx metadata table\n");
-}
-
-if (origin_hash_table_check(vCall_point, ret_metadata->low,
-ret_metadata->high, vCall_target)) {
-stats[3]++;
-return;
-} else {
-fprintf(
-stderr,
-"[OCSCFI-vCall-ORIGIN] Error at %ld target to %ld with context %ld, "
-"%ld, %ld for object allocation id %ld, %ld.\n",
-vCall_point, vCall_target, __builtin_return_address(1),
-__builtin_return_address(2), __builtin_return_address(3),
-ret_metadata->low, ret_metadata->high);
-return;
-} */
-}
-
 void pCall_reference_monitor(unsigned long pCallID, unsigned long target) {
   unsigned long pCall_point = pCallID;
   unsigned long pCall_target = target;

@@ -37,7 +37,7 @@ $_ZTS5Hello = comdat any
 @_ZTI5Hello = linkonce_odr dso_local constant { i8*, i8* } { i8* bitcast (i8** getelementptr inbounds (i8*, i8** @_ZTVN10__cxxabiv117__class_type_infoE, i64 2) to i8*), i8* getelementptr inbounds ([7 x i8], [7 x i8]* @_ZTS5Hello, i32 0, i32 0) }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external dso_local global i8*
 @_ZTS5Hello = linkonce_odr dso_local constant [7 x i8] c"5Hello\00", comdat, align 1
-@CFG_TABLE.1 = constant [10 x i32*] [i32* inttoptr (i32 53415718 to i32*), i32* bitcast (void (%class.Hello*)* @_ZN5Hello5ptofnEv to i32*), i32* inttoptr (i32 53415718 to i32*), i32* bitcast (void (%class.Hello*)* @_ZN5Hello5vFuncEv to i32*), i32* inttoptr (i32 133337585 to i32*), i32* bitcast (void (i32)* @_Z5CallFi to i32*), i32* inttoptr (i32 133337585 to i32*), i32* bitcast (void (i32)* @_Z5CallDi to i32*), i32* inttoptr (i32 133337585 to i32*), i32* bitcast (void (i32)* @_Z5CallGi to i32*)]
+@CFG_TABLE.1 = constant [10 x i32*] [i32* inttoptr (i32 53415718 to i32*), i32* bitcast (void (%class.Hello*)* @_ZN5Hello5ptofnEv to i32*), i32* inttoptr (i32 53415718 to i32*), i32* bitcast (void (%class.Hello*)* @_ZN5Hello5vFuncEv to i32*), i32* inttoptr (i32 133337585 to i32*), i32* bitcast (void (i32)* @_Z5CallDi to i32*), i32* inttoptr (i32 133337585 to i32*), i32* bitcast (void (i32)* @_Z5CallFi to i32*), i32* inttoptr (i32 133337585 to i32*), i32* bitcast (void (i32)* @_Z5CallGi to i32*)]
 
 ; Function Attrs: noinline nounwind optnone uwtable
 define dso_local void @cfi_init() #0 {
@@ -195,18 +195,6 @@ if.end:                                           ; preds = %entry
 return:                                           ; preds = %if.end, %if.then
   %4 = load i32, i32* %retval, align 4
   ret i32 %4
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define dso_local void @vCall_reference_monitor(i8* %thisptr, i64 %vptr, i8* %vtarget) #0 {
-entry:
-  %thisptr.addr = alloca i8*, align 8
-  %vptr.addr = alloca i64, align 8
-  %vtarget.addr = alloca i8*, align 8
-  store i8* %thisptr, i8** %thisptr.addr, align 8
-  store i64 %vptr, i64* %vptr.addr, align 8
-  store i8* %vtarget, i8** %vtarget.addr, align 8
-  ret void
 }
 
 ; Function Attrs: noinline nounwind optnone uwtable
