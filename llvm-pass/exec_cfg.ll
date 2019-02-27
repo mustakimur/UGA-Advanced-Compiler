@@ -21,7 +21,7 @@ $_ZTI5Hello = comdat any
 
 $_ZTS5Hello = comdat any
 
-@CFG_LENGTH = dso_local global i32 10, align 4
+@CFG_LENGTH = dso_local global i32 20, align 4
 @passCounter = dso_local global i32 0, align 4
 @cfi_hash_table = dso_local global [1000000 x %struct.CFI_STRUCT*] zeroinitializer, align 16
 @_cfi_preinit = dso_local global void ()* @cfi_init, section ".preinit_array", align 8
@@ -33,11 +33,12 @@ $_ZTS5Hello = comdat any
 @.str = private unnamed_addr constant [41 x i8] c"[pCall-CFI] Error at %ld target to 0x%x\0A\00", align 1
 @st_arr = dso_local global [2 x %struct.ST] [%struct.ST { i32 10, void (i32)* @_Z5CallDi }, %struct.ST { i32 20, void (i32)* @_Z5CallFi }], align 16
 @gl = dso_local global void ()* @_Z5CallEv, align 8
+@.str.2 = private unnamed_addr constant [22 x i8] c"helloooooooooooo\FF\FF\80\0B@\00", align 1
 @_ZTV5Hello = linkonce_odr dso_local unnamed_addr constant { [3 x i8*] } { [3 x i8*] [i8* null, i8* bitcast ({ i8*, i8* }* @_ZTI5Hello to i8*), i8* bitcast (void (%class.Hello*)* @_ZN5Hello5vFuncEv to i8*)] }, comdat, align 8
 @_ZTI5Hello = linkonce_odr dso_local constant { i8*, i8* } { i8* bitcast (i8** getelementptr inbounds (i8*, i8** @_ZTVN10__cxxabiv117__class_type_infoE, i64 2) to i8*), i8* getelementptr inbounds ([7 x i8], [7 x i8]* @_ZTS5Hello, i32 0, i32 0) }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external dso_local global i8*
 @_ZTS5Hello = linkonce_odr dso_local constant [7 x i8] c"5Hello\00", comdat, align 1
-@CFG_TABLE.1 = constant [10 x i32*] [i32* inttoptr (i32 53415718 to i32*), i32* bitcast (void (%class.Hello*)* @_ZN5Hello5ptofnEv to i32*), i32* inttoptr (i32 53415718 to i32*), i32* bitcast (void (%class.Hello*)* @_ZN5Hello5vFuncEv to i32*), i32* inttoptr (i32 133337585 to i32*), i32* bitcast (void (i32)* @_Z5CallDi to i32*), i32* inttoptr (i32 133337585 to i32*), i32* bitcast (void (i32)* @_Z5CallFi to i32*), i32* inttoptr (i32 133337585 to i32*), i32* bitcast (void (i32)* @_Z5CallGi to i32*)]
+@CFG_TABLE.1 = constant [20 x i32*] [i32* inttoptr (i32 13578929 to i32*), i32* bitcast (void (i32)* @_Z5CallFi to i32*), i32* inttoptr (i32 13578929 to i32*), i32* bitcast (void (i32)* @_Z5CallDi to i32*), i32* inttoptr (i32 13578929 to i32*), i32* bitcast (void (i32)* @_Z5CallGi to i32*), i32* inttoptr (i32 53415718 to i32*), i32* bitcast (void (%class.Hello*)* @_ZN5Hello5ptofnEv to i32*), i32* inttoptr (i32 53415718 to i32*), i32* bitcast (void (%class.Hello*)* @_ZN5Hello5vFuncEv to i32*), i32* inttoptr (i32 523159351 to i32*), i32* bitcast (void ()* @cfi_init to i32*), i32* inttoptr (i32 523159351 to i32*), i32* bitcast (void ()* @_Z5CallEv to i32*), i32* inttoptr (i32 523159351 to i32*), i32* bitcast (void ()* @cfi_free to i32*), i32* inttoptr (i32 523159351 to i32*), i32* bitcast (void ()* @_Z5CallAv to i32*), i32* inttoptr (i32 523159351 to i32*), i32* bitcast (void ()* @_Z5CallIv to i32*)]
 
 ; Function Attrs: noinline nounwind optnone uwtable
 define dso_local void @cfi_init() #0 {
@@ -55,12 +56,12 @@ for.cond:                                         ; preds = %for.inc, %entry
 
 for.body:                                         ; preds = %for.cond
   %2 = load i64, i64* %i, align 8
-  %arrayidx = getelementptr inbounds [10 x i32*], [10 x i32*]* @CFG_TABLE.1, i64 0, i64 %2
+  %arrayidx = getelementptr inbounds [20 x i32*], [20 x i32*]* @CFG_TABLE.1, i64 0, i64 %2
   %3 = load i32*, i32** %arrayidx, align 8
   %4 = ptrtoint i32* %3 to i64
   %5 = load i64, i64* %i, align 8
   %add = add i64 %5, 1
-  %arrayidx2 = getelementptr inbounds [10 x i32*], [10 x i32*]* @CFG_TABLE.1, i64 0, i64 %add
+  %arrayidx2 = getelementptr inbounds [20 x i32*], [20 x i32*]* @CFG_TABLE.1, i64 0, i64 %add
   %6 = load i32*, i32** %arrayidx2, align 8
   %7 = ptrtoint i32* %6 to i64
   call void @cfi_hash_insert(i64 %4, i64 %7)
@@ -303,6 +304,8 @@ entry:
   %exn.slot = alloca i8*
   %ehselector.slot = alloca i32
   %lc = alloca %struct.ST, align 8
+  %vFp = alloca i8*, align 8
+  %s = alloca [10 x i8], align 1
   store i32 0, i32* %retval, align 4
   %call = call i8* @_Znwm(i64 40) #7
   %0 = bitcast i8* %call to %class.Hello*
@@ -316,11 +319,14 @@ invoke.cont:                                      ; preds = %entry
   %1 = load %class.Hello*, %class.Hello** %h, align 8
   %x = getelementptr inbounds %class.Hello, %class.Hello* %1, i32 0, i32 3
   store { i64, i64 } { i64 ptrtoint (void (%class.Hello*)* @_ZN5Hello5ptofnEv to i64), i64 0 }, { i64, i64 }* %x, align 8
+  store i8* bitcast (void ()* @_Z5CallAv to i8*), i8** %vFp, align 8
+  %arraydecay = getelementptr inbounds [10 x i8], [10 x i8]* %s, i32 0, i32 0
+  %call1 = call i8* @strcpy(i8* %arraydecay, i8* getelementptr inbounds ([22 x i8], [22 x i8]* @.str.2, i32 0, i32 0)) #6
   call void @_Z5CallBv()
-  %fp1 = getelementptr inbounds %struct.ST, %struct.ST* %lc, i32 0, i32 1
-  %2 = load void (i32)*, void (i32)** %fp1, align 8
+  %fp2 = getelementptr inbounds %struct.ST, %struct.ST* %lc, i32 0, i32 1
+  %2 = load void (i32)*, void (i32)** %fp2, align 8
   %3 = ptrtoint void (i32)* %2 to i64
-  call void @pCall_reference_monitor(i64 133337585, i64 %3)
+  call void @pCall_reference_monitor(i64 13578929, i64 %3)
   call void %2(i32 10)
   %4 = load %class.Hello*, %class.Hello** %h, align 8
   %5 = bitcast %class.Hello* %4 to void (%class.Hello*)***
@@ -330,15 +336,20 @@ invoke.cont:                                      ; preds = %entry
   %7 = ptrtoint void (%class.Hello*)* %6 to i64
   call void @pCall_reference_monitor(i64 53415718, i64 %7)
   call void %6(%class.Hello* %4)
+  %8 = load i8*, i8** %vFp, align 8
+  %9 = bitcast i8* %8 to void ()*
+  %10 = ptrtoint void ()* %9 to i64
+  call void @pCall_reference_monitor(i64 523159351, i64 %10)
+  call void %9()
   ret i32 0
 
 lpad:                                             ; preds = %entry
-  %8 = landingpad { i8*, i32 }
+  %11 = landingpad { i8*, i32 }
           cleanup
-  %9 = extractvalue { i8*, i32 } %8, 0
-  store i8* %9, i8** %exn.slot, align 8
-  %10 = extractvalue { i8*, i32 } %8, 1
-  store i32 %10, i32* %ehselector.slot, align 4
+  %12 = extractvalue { i8*, i32 } %11, 0
+  store i8* %12, i8** %exn.slot, align 8
+  %13 = extractvalue { i8*, i32 } %11, 1
+  store i32 %13, i32* %ehselector.slot, align 4
   call void @_ZdlPv(i8* %call) #8
   br label %eh.resume
 
@@ -346,8 +357,8 @@ eh.resume:                                        ; preds = %lpad
   %exn = load i8*, i8** %exn.slot, align 8
   %sel = load i32, i32* %ehselector.slot, align 4
   %lpad.val = insertvalue { i8*, i32 } undef, i8* %exn, 0
-  %lpad.val2 = insertvalue { i8*, i32 } %lpad.val, i32 %sel, 1
-  resume { i8*, i32 } %lpad.val2
+  %lpad.val3 = insertvalue { i8*, i32 } %lpad.val, i32 %sel, 1
+  resume { i8*, i32 } %lpad.val3
 }
 
 declare dso_local i32 @__gxx_personality_v0(...)
@@ -381,6 +392,9 @@ entry:
   %this1 = load %class.Hello*, %class.Hello** %this.addr, align 8
   ret void
 }
+
+; Function Attrs: nounwind
+declare dso_local i8* @strcpy(i8*, i8*) #1
 
 ; Function Attrs: nobuiltin nounwind
 declare dso_local void @_ZdlPv(i8*) #5

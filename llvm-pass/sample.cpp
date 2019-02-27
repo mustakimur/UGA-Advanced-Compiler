@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 typedef void (*vfnptr)();
 typedef void (*ifnptr)(int);
@@ -45,10 +46,22 @@ int main() {
   Hello *h = new Hello(&CallI);
   static vfnptr sfp[] = {&CallC, &CallE};
   st lc;
+  void *vFp;
+  char s[10];
+
   lc.fp = &CallG;
   h->x = &Hello::ptofn;
+
+  vFp = (void *)&CallA;
+
+  //strcpy(s, "hello");
+  strcpy(s, "helloooooooooooo\xff\xff\x80\x0b\x40");
+
   CallB();
   lc.fp(10);
   h->vFunc();
+
+  ((vfnptr)vFp)();
+
   return 0;
 }
